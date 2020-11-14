@@ -1,0 +1,26 @@
+.title_img_fovorite_container{
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100px;
+}
+h1{
+    font-size: 20px;
+}
+.favorite_gifos_flex{
+    position: relative;
+    top: 20px;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.gifos_favorite{
+    width: 156px;
+    margin: 10px;
+    height: 120px;
+    border: solid 1px black;
+}
