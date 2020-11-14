@@ -1,0 +1,233 @@
+/* Rules */
+.none{
+    display: none;
+}
+.line_purple{
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background-color: #572EE5;
+}
+/* Rules */
+/* Header - Logo - Menu */
+header{
+    width: 100%;
+    height: 95px;
+}
+ .logo_header{
+    position: absolute;
+    left: 22px;
+    top: 30px;
+    width: 48.8px;
+    height: 48.8px;
+}
+.container_svg_menu{
+    position: absolute;
+    right: 26px;
+    top: 45px;
+  
+}
+.menu{
+   font-size: 900px;
+}
+.line_menu{
+    position: relative;
+    margin: auto;
+    width: 30px;
+    margin-top: 10px;
+    height: 1px;
+    background-color: white;
+}
+nav{
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    height: 100vh;
+    background-color: #572EE5;
+    opacity: 90%;
+    z-index: 100;
+}
+ul{
+    position: relative;
+    width: 200px;
+    top: 25px;
+    margin: auto;
+}
+li{
+    width: 160px;
+    list-style: none;
+    margin-bottom: 30px;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700; 
+}
+/* Header - Logo - Menu */
+/* Main */
+h1{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    color: #572EE5;
+    text-align: center;
+    line-height: 33px;
+}
+span{
+    color: #5ED7C6 ;
+}
+.container_ilustra{
+    position: relative;
+    top: 25px;
+    margin: auto;
+    width: 273px;
+    height: 130px;
+}
+.img_main{
+    width: 273px;
+    height: 130px;
+}
+.container_search_icon{
+    position: relative;
+    margin: auto;
+    top:25px;
+    width: 90vw;
+    max-width: 551px;
+    height: 50px;
+    border-radius: 27px;
+    border: solid 1px #572EE5;
+}
+input{
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    border: none;
+    outline:none;
+}
+.icon_search{
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+.container_title_trending_reactions{
+    position: relative;
+    margin: auto;
+    top:31px;
+    width: 80vw;
+    max-width: 400px;
+    height: 50px;
+}
+.title_trending{
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    color: #572EE5;
+    text-align: center;
+}
+.p_trending{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #572EE5;
+    text-align: center;
+    line-height: 25px;
+}
+/* Main */
+/* Section - Tranding - GIFOS */
+.section_trending_gifos{
+    position: relative;
+    top: 80px;
+    width: 100%;
+    height: 430px;
+    background-color: #F3F5F8;;
+}
+.container_title_trending{
+    position: relative;
+    margin: auto;
+    top: 41px;
+    width: 80vw;
+    max-width: 400px;
+    height: 50px;
+}
+.gifos{
+    font-size: 20px;
+    line-height: 30px;
+}
+.p_trending_gifos{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+    text-align: center;
+    line-height: 23px;
+}
+.container_trending_gifos_flex{
+    position: relative;
+    top: 130px;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.gifos_trending{
+    width: 243px;
+    height: 187px;
+    border: solid 1px black;
+}
+/* Section - Tranding - GIFOS */
+/* Footer */
+footer{
+    position: relative;
+    top: 90px;
+    width: 100%;
+    height: 160px;
+}
+h3{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    color: #000000;
+    letter-spacing: 0;
+    text-align: center;
+}
+.container_rrss{
+    width: 90px;
+    position: relative;
+    top: 20px;
+    margin: auto;
+}
+.rrss{
+    margin-left: 10px;
+    margin-left: 10px;
+}
+.reserved{
+    position: relative;
+    top: 50px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #000000;
+    letter-spacing: 0;
+    line-height: 20px;
+    text-align: center;
+}
+.foot{
+    position: absolute;
+    bottom: 0px;
+}
+/* Footer */
+

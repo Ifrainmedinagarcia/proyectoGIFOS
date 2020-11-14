@@ -11,46 +11,61 @@
 </head>
 <body>
     <header>
-        <img src="assets/logo-desktop.svg" alt="">
-        <img src="assets/Logo-modo-noc.svg" alt="">
+        <div class="line_purple"></div>
+        <img class="logo_header" src="assets/logo-desktop.svg" alt="">
+        <img class="logo_header none" src="assets/Logo-modo-noc.svg" alt="">
         <div class="container_svg_menu">
-            <img src="assets/burger.svg" alt="">
-            <img src="assets/burger-modo-noct.svg" alt="">
-            <img src="assets/close.svg" alt="">
-            <img src="assets/close-modo-noct.svg" alt="">
+            <img class="menu" src="assets/burger.svg" alt="">
+            <img class="menu none" src="assets/burger-modo-noct.svg" alt="">
+            <img class="menu none" src="assets/close.svg" alt="">
+            <img class="menu none" src="assets/close-modo-noct.svg" alt="">
         </div>
-        <nav>
+        <nav class="none">
             <ul>
-                <li>Modo Nocturno</li>
-                <li>Favoritos</li>
-                <li>Mis GIFOS</li>
+                <li><a href="">Modo Nocturno</a><div class="line_menu"></div></li>
+                
+                <li><a href="">Favoritos</a><div class="line_menu"></div></li>
+     
+                <li><a href="">Mis GIFOS</a><div class="line_menu"></div></li>
+   
             </ul>
         </nav>
     </header>
     <main>
         <h1>Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h1>
-        <img src="assets/ilustra_header.svg" alt="">
+        <div class="container_ilustra">
+            <img class="img_main" src="assets/ilustra_header.svg" alt="">
+        </div>
         <div class="container_search_icon">
             <input type="text" placeholder="Busca GIFOS y más">
-            <img src= "assets/icon-search.svg" alt="">
+            <img class="icon_search" src= "assets/icon-search.svg" alt="">
         </div>
-        <h2>Trending:</h2>
-        <p>Reactions, Entertainment, Sports, Stickers, Artists</p>
+        <div class="container_title_trending_reactions">
+            <h2 class="title_trending">Trending:</h2>
+            <p class="p_trending">Reactions, Entertainment, Sports, Stickers, Artists</p>
+        </div>
     </main>
-    <section>
-        <h2>Trending GIFOS</h2>
-        <p>Mira los últimos GIFOS de nuestra comunidad.</p>
+    <section class="section_trending_gifos">
+        <div class="container_title_trending">
+            <h2 class="title_trending gifos">Trending GIFOS</h2>
+            <p class="p_trending_gifos">Mira los últimos GIFOS de nuestra comunidad.</p>
+        </div>
+        <div class="container_trending_gifos_flex">
+            <div class="gifos_trending">
+                <img src="" alt="">
+            </div>
+        </div>
     </section>
-
     <footer>
         <h3>Compartir en:</h3>
-        <img src="assets/icon_facebook.svg" alt="">
-        <img src="assets/icon-twitter.svg" alt="">
-        <img src="assets/icon_instagram.svg" alt="">
-        <p>© GIFOS 2020 All Rights Reserved.</p>
-        <div></div>
+        <div class="container_rrss">
+            <a href=""><img class="rrss" src="assets/icon_facebook.svg" alt=""></a>
+            <a href=""><img class="rrss" src="assets/icon-twitter.svg" alt=""></a>
+            <a href=""><img class="rrss" src="assets/icon_instagram.svg" alt=""></a>  
+        </div>
+        <p class="reserved">© GIFOS 2020 All Rights Reserved.</p>
+        <div class="line_purple foot"></div>
     </footer>
-
     <script src="js/modernizr-custom.js"></script>
     <script src="js/prefixfree.min.js"></script>
     <script src="js/main.js"></script>
