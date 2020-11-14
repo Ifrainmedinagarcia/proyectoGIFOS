@@ -24,3 +24,12 @@ h1{
     height: 120px;
     border: solid 1px black;
 }
+@media screen and (min-width:1024px){
+    .gifos_favorite{
+        width: 260px;
+        margin: 10px;
+        height: 200px;
+        border: solid 1px black;
+    }
+    
+}

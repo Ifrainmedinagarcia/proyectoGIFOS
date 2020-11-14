@@ -259,6 +259,9 @@ h3{
         height: 54px;
         top:25px;
     }
+    .createGif img {
+        position: absolute;
+    }
     .nav_none{
         display: block;
     }
@@ -301,8 +304,13 @@ h3{
     .container_h1{
         position: relative;
         margin: auto;
-        width: 430px;
+        width: 600px;
         height: 99px;
+       
+    }
+    h1{
+        font-size: 35px;
+        line-height: 50px;
     }
     .container_ilustra{
         position: relative;
