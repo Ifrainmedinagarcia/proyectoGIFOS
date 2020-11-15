@@ -1,10 +1,17 @@
 :root{
-    --bg-color: white;
+    --bg-color: #eee;
     --text-color: #572EE5;
     --text-color-span: #5ED7C6;
     --text-color-foot: #000000;
     --bg-nigth: #37383C;
     --bg-nigth-trending: #2223;
+    --bg-trending-color: #222326;
+}
+body{
+    transition: all .2s ease;
+}
+body.dark{
+    background-color: var(--bg-nigth);
 }
 /* Rules */
 .none{
@@ -18,6 +25,10 @@
     width: 100%;
     height: 5px;
     background-color: #572EE5;
+    transition: all .2s ease;
+}
+body.dark .line_purple{
+    background-color: var(--text-color-foot);
 }
 .trending_left{
     display: none;
@@ -76,7 +87,6 @@ li{
     list-style: none;
     margin-bottom: 30px;
     text-align: center;
-    width: 110px;
 }
 li:hover{
     border-bottom: 2px solid #5ED7C6;
@@ -86,7 +96,11 @@ a{
     color: white;
     font-family: 'Montserrat';
     font-style: normal;
-    font-weight: 700; 
+    font-weight: 700;
+    transition: all .2s ease;
+}
+body.dark a{
+    color: var(--bg-color);
 }
 .hom{
     color: #9CAFC3;
@@ -107,6 +121,10 @@ h1{
     color: var(--text-color);
     text-align: center;
     line-height: 33px;
+    transition: all .2s ease;
+}
+body.dark h1{
+    color: var(--bg-color);
 }
 span{
     color: var(--text-color-span);
@@ -132,6 +150,9 @@ span{
     border-radius: 27px;
     border: solid 1px #572EE5;
 }
+body.dark .container_search_icon{
+    border: solid 1px var(--bg-color);
+}
 input{
     position: absolute;
     right: 0;
@@ -141,6 +162,16 @@ input{
     margin: auto;
     border: none;
     outline:none;
+    background: transparent;
+}
+input::placeholder{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+}
+body.dark input::placeholder{
+    color: var(--bg-color);
 }
 .icon_search{
     position: absolute;
@@ -163,6 +194,10 @@ input{
     font-size: 16px;
     color: var(--text-color);
     text-align: center;
+    transition: all .2s ease;
+}
+body.dark .title_trending{
+    color: var(--bg-color);
 }
 .p_trending{
     font-family: 'Montserrat';
@@ -172,6 +207,13 @@ input{
     color: var(--text-color);
     text-align: center;
     line-height: 25px;
+    transition: all .2s ease;
+}
+body.dark .p_trending{
+    color: var(--bg-color);
+}
+body.dark .p_trending{
+    color: var(--bg-color);
 }
 .line_search{
     position: relative;
@@ -278,6 +320,9 @@ h4{
     height: 430px;
     background-color: #F3F5F8;;
 }
+body.dark .section_trending_gifos{
+    background-color: var(--bg-trending-color);
+}
 .container_title_trending{
     position: relative;
     margin: auto;
@@ -298,6 +343,10 @@ h4{
     color: var(--text-color-foot);
     text-align: center;
     line-height: 23px;
+    transition: all .2s ease;
+}
+body.dark .p_trending_gifos{
+    color: var(--bg-color);
 }
 .container_trending_gifos_flex{
     position: relative;
@@ -331,6 +380,9 @@ h3{
     letter-spacing: 0;
     text-align: center;
 }
+body.dark h3{
+    color: var(--bg-color);
+}
 .container_rrss{
     width: 90px;
     position: relative;
@@ -352,6 +404,9 @@ h3{
     letter-spacing: 0;
     line-height: 20px;
     text-align: center;
+}
+body.dark .reserved{
+    color: var(--bg-color);
 }
 .foot{
     position: absolute;
@@ -394,10 +449,11 @@ h3{
     ul{
         display: inline-block;
         position: absolute;
-        right: 0px;
+        right: 90px;
         top: 30px;
         width: 700px;
         height: 25px;
+
     }
     li{
         display: inline-block;
