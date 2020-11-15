@@ -1,0 +1,157 @@
+:root{
+    --bg-color: white;
+    --text-color: #572EE5;
+    --text-color-span: #5ED7C6;
+    --text-color-foot: #000000;
+    --bg-nigth: #37383C;
+    --bg-nigth-trending: #2223;
+}
+.cam_main{
+    position: relative;
+    margin: auto;
+    width: 90vw;
+    height: 390px;
+    border: 1px solid var(--text-color);
+}
+h1{
+    font-size: 15px;
+    text-align: center;
+}
+.container_title_crea{
+    position: relative;
+    margin: auto;
+    width:200px;
+    top: 90px;
+}
+P{
+    font-size: 16px;
+    color: var(--text-color-foot);
+    text-align: center;
+    line-height: 29px;
+}
+.container_num_pasos{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    top: 40px;
+    margin: auto;
+    width: 150px;  
+}
+.paso_paso{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: solid 1px var(--text-color);
+    border-radius: 200px;
+    text-align: center;
+    cursor: pointer;
+}
+.line_big{
+    position: relative;
+    top: 60px;
+    margin: auto;
+    width: 250px;
+    height: 7px;
+    background-color: var(--text-color);
+}
+.btn_start{
+    position: relative;
+    margin: auto;
+    width: 130px;
+    height: 50px;
+    top: 100px;
+    border: solid 1px var(--text-color);
+    border-radius: 25px;
+    cursor: pointer;
+}
+.start{
+    position: relative;
+    margin: auto;
+    font-size: 15px;
+    color: var(--text-color);
+    letter-spacing: 0;
+    top: 10px;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+}
+footer{
+    top: 280px;
+}
+@media screen and (min-width:1024px){
+    .cam_main{
+        position: relative;
+        margin: auto;
+        width: 688px;
+        height: 390px;
+        border: 1px solid var(--text-color);
+    }
+    h1{
+        font-size: 25px;
+        text-align: center;
+    }
+    .container_title_crea{
+        position: relative;
+        margin: auto;
+        width:300px;
+        top: 70px;
+    }
+    P{
+        font-size: 16px;
+        color: var(--text-color-foot);
+        text-align: center;
+        line-height: 29px;
+    }
+    .container_num_pasos{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        top: 80px;
+        margin: auto;
+        width: 149px;  
+    }
+    .paso_paso{
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: solid 1px var(--text-color);
+        border-radius: 200px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .line_big{
+        position: relative;
+        top: 100px;
+        margin: auto;
+        width: 800px;
+        height: 7px;
+        background-color: var(--text-color);
+    }
+    .btn_start{
+        top: 150px;
+    }
+}
+@media screen and (min-width:1200px){
+    footer{
+        top: 340px;
+    }
+    .camera{
+        position: absolute;
+        top: 150px;
+        left: 20px;
+        display: inline-block;
+    }
+    .light{
+        position: absolute;
+        top: 125px;
+        left: 202px;
+        display: inline-block;
+    }
+    .movie{
+        position: absolute;
+        top: 300px;
+        right: 100px;
+        display: block;
+    }
+}

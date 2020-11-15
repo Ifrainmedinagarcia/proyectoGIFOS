@@ -3,6 +3,8 @@
     --text-color: #572EE5;
     --text-color-span: #5ED7C6;
     --text-color-foot: #000000;
+    --bg-nigth: #37383C;
+    --bg-nigth-trending: #2223;
 }
 /* Rules */
 .none{
@@ -16,6 +18,12 @@
     width: 100%;
     height: 5px;
     background-color: #572EE5;
+}
+.trending_left{
+    display: none;
+}
+.trending_right{
+    display: none;
 }
 /* Rules */
 /* Header - Logo - Menu */
@@ -80,8 +88,8 @@ a{
     font-style: normal;
     font-weight: 700; 
 }
-a:active{
-    color: #9CAFC3 ;
+.hom{
+    color: #9CAFC3;
 }
 /* Header - Logo - Menu */
 /* Main */
@@ -305,7 +313,6 @@ h4{
     width: 243px;
     height: 187px;
     margin: 20px;
-    border: solid 1px black;
 }
 /* Section - Tranding - GIFOS */
 /* Footer */
@@ -401,6 +408,9 @@ h3{
         color: var(--text-color);
         letter-spacing: 0;
         text-align: center;
+    }
+    .crea_tu_desktop{
+        display: none;
     }
   /* Main */
     main{
@@ -509,7 +519,6 @@ h3{
     .gifos_trending{
         width: 357px;
         height: 275px;
-        border: solid 1px black;
     }
     .info_gif{
         position: relative;
@@ -529,9 +538,11 @@ h3{
         top: 10px;
     }
     .trending_left{
+        display: block;
         left: 50px;
     }
     .trending_right{
+        display: block;
         right: 50px;
     }
     /* Footer */

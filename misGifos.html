@@ -28,7 +28,7 @@
                 <li><a href="">Modo Nocturno</a><div class="line_menu"></div></li>
                 <li><a href="index.html">Home</a><div class="line_menu"></div></li>
                 <li><a href="favoritos.html">Favoritos</a><div class="line_menu"></div></li>
-                <li><a href="misGifos.html">Mis GIFOS</a><div class="line_menu"></div></li>
+                <li><a class="mis" href="misGifos.html">Mis GIFOS</a><div class="line_menu"></div></li>
             </ul>
         </nav>
         <div class="createGif nav_none">
@@ -43,7 +43,11 @@
             <h1>Mis GIFOS</h1>
         </div>
         <section class="favorite_gifos_flex">
-            <div class="gifos_trending">
+            <div class="no_favorites">
+                <img class="img_fav_sin" src="assets/icon-mis-gifos-sin-contenido.svg" alt="">
+                <p class="guarda_tu_primer_gifo_p">¡Anímate a crear tu primer GIFO!</p>
+            </div>
+            <div class="gifos_trending none">
                 <div class="info_gif">
                     <div class="actions_users">
                         <img src="assets/icon-fav.svg" alt="">
@@ -60,9 +64,14 @@
             <p class="p_trending_gifos">Mira los últimos GIFOS de nuestra comunidad.</p>
         </div>
         <div class="container_trending_gifos_flex">
-            <div class="gifos_trending">
-                <img src="" alt="">
+            <div class="info_gif">
+                <div class="actions_users">
+                    <img src="assets/icon-fav.svg" alt="">
+                    <img src="assets/icon-download.svg" alt="">
+                    <img src="assets/icon-max-normal.svg" alt="">
+                </div>
             </div>
+        </div>
         </div>
         <img class="button_slider_left trending_left" src="assets/button-slider-left.svg" alt="">
         <img class="button_slider_right trending_right" src="assets/Button-Slider-right.svg" alt="">
