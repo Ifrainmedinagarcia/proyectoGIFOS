@@ -29,6 +29,7 @@ header{
     top: 30px;
     width: 48.8px;
     height: 48.8px;
+    z-index: 9999;
 }
 .container_svg_menu{
     position: absolute;
@@ -201,6 +202,66 @@ input{
     cursor: pointer;
 }
 /* Main */
+/* max_gif */
+.max_gif{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: rgba(255, 255, 255, .9);
+    z-index: 999;
+}
+.actions_users_max{
+    position: absolute;
+    bottom: 20px;
+    right: 0px;
+}
+.close_max_gif{
+    position: absolute;
+    right: 40px;
+    top: 80px;
+}
+.container_gif_max_title_actions{
+    position: relative;
+    margin: auto;
+    width: 70vw;
+    height: 400px;
+    top: 130px;
+    max-width: 695px;
+ 
+}
+.max_gifos{
+    position: absolute;
+    width: 70vw;
+    max-width: 695px;
+    height: 275px;
+    border: solid 1px black;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+.title_max_gif{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+h4{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: -12px;
+}
+.p_gif_max{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+}
+/* max_gif */
 /* Section - Tranding - GIFOS */
 .section_trending_gifos{
     position: relative;
@@ -246,7 +307,6 @@ input{
     margin: 20px;
     border: solid 1px black;
 }
-
 /* Section - Tranding - GIFOS */
 /* Footer */
 footer{
@@ -303,6 +363,7 @@ h3{
         width: 54px;
         height: 54px;
         top:25px;
+        z-index: 9999;
     }
     .createGif img {
         position: absolute;
@@ -381,7 +442,53 @@ h3{
     .container_title_trending_reactions{
         top:70px;
     }
-     /* Main */
+    /* Main */
+    /* max_gif */
+    .actions_users_max{
+        bottom: 0px;
+    }
+    .close_max_gif{
+        right: 150px;
+    }
+    .container_gif_max_title_actions{
+        height: 480px;
+    }
+    .max_gifos{
+        height: 385px;
+    }
+    .title_max_gif{
+        position: absolute;
+        bottom: -13px;
+        left: 0px;
+    }
+    h4{
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        text-align: center;
+        margin-bottom: -12px;
+    }
+    .p_gif_max{
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        text-align: center;
+    }
+    .button_slider_left{
+        position: absolute;
+        left: 200px;
+        top: 360px;
+        cursor: pointer;
+    }
+    .button_slider_right{
+        position: absolute;
+        right: 200px;
+        top: 360px;
+        cursor: pointer;
+    }
+    /* max_gif */
     /* trending_gifos */
     .section_trending_gifos{
         top: 250px;
@@ -416,9 +523,16 @@ h3{
         opacity: 1;
     }
     .actions_users{
+        display: block;
         position: absolute;
         right: 15px;
         top: 10px;
+    }
+    .trending_left{
+        left: 50px;
+    }
+    .trending_right{
+        right: 50px;
     }
     /* Footer */
     footer{
