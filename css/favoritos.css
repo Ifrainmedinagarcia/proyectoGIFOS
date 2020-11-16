@@ -1,10 +1,11 @@
 :root{
-    --bg-color: white;
+    --bg-color: #eee;
     --text-color: #572EE5;
     --text-color-span: #5ED7C6;
     --text-color-foot: #000000;
     --bg-nigth: #37383C;
     --bg-nigth-trending: #2223;
+    --bg-trending-color: #222326;
 }
 .title_img_fovorite_container{
     position: relative;

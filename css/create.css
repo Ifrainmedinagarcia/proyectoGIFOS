@@ -1,5 +1,5 @@
 :root{
-    --bg-color: white;
+    --bg-color: #eee;
     --text-color: #572EE5;
     --text-color-span: #5ED7C6;
     --text-color-foot: #000000;
@@ -13,6 +13,9 @@
     height: 390px;
     border: 1px solid var(--text-color);
 }
+body.dark .cam_main{
+    border: 1px solid var(--bg-color);
+}
 h1{
     font-size: 15px;
     text-align: center;
@@ -24,10 +27,16 @@ h1{
     top: 90px;
 }
 P{
-    font-size: 16px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
     color: var(--text-color-foot);
     text-align: center;
     line-height: 29px;
+}
+body.dark p{
+    color: var(--bg-color);
 }
 .container_num_pasos{
     position: relative;
@@ -46,6 +55,10 @@ P{
     text-align: center;
     cursor: pointer;
 }
+body.dark .paso_paso{
+    border: solid 1px var(--bg-color);
+    color: var(--bg-color);
+}
 .line_big{
     position: relative;
     top: 60px;
@@ -53,6 +66,9 @@ P{
     width: 250px;
     height: 7px;
     background-color: var(--text-color);
+}
+body.dark .line_big{
+    background-color: var(--text-color-foot);
 }
 .btn_start{
     position: relative;
@@ -138,20 +154,39 @@ footer{
     }
     .camera{
         position: absolute;
-        top: 150px;
+        background-image: url(../assets/camara.svg);
+        width: 180px;
+        height: 163px;
+        background-size: 180px;
+        background-repeat: no-repeat;
+        top: 70px;
         left: 20px;
         display: inline-block;
     }
+    body.dark .camera{
+        background-image: url(../assets/camara-modo-noc.svg);
+    }
     .light{
         position: absolute;
+        background-image: url(../assets/element-luz-camara.svg);
         top: 125px;
+        width: 80px;
+        height: 150px;
+        background-repeat: no-repeat;
         left: 202px;
         display: inline-block;
     }
     .movie{
         position: absolute;
+        background-image: url(../assets/pelicula.svg);
         top: 300px;
+        width: 150px;
+        background-repeat: no-repeat;
+        height: 90px;
         right: 100px;
         display: block;
+    }
+    body.dark .movie{
+        background-image: url(../assets/pelicula-modo-noc.svg);
     }
 }

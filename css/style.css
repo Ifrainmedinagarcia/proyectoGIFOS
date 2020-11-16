@@ -42,13 +42,19 @@ header{
     width: 100%;
     height: 95px;
 }
-.logo_header{
+.container_logo_header{
     position: absolute;
     left: 22px;
     top: 30px;
     width: 48.8px;
     height: 48.8px;
-    z-index: 9999;
+    background-image: url(../assets/logo-mobile.svg);
+    background-size: 50px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+body.dark .container_logo_header{
+    background-image: url(../assets/logo-mobile-modo-noct.svg);
 }
 .container_svg_menu{
     position: absolute;
@@ -72,9 +78,13 @@ nav{
     top: 100px;
     width: 100%;
     height: 100vh;
-    background-color: #572EE5;
+    background-color: var(--text-color);
     opacity: 90%;
     z-index: 100;
+}
+body.dark nav{
+    background-color: var(--text-color-foot);
+    opacity: 100%;
 }
 ul{
     position: relative;
@@ -174,9 +184,17 @@ body.dark input::placeholder{
     color: var(--bg-color);
 }
 .icon_search{
+    background-image: url(../assets/icon-search.svg);
     position: absolute;
+    width: 20px;
+    height: 20px;
     right: 20px;
     top: 15px;
+    cursor: pointer;
+}
+
+body.dark .icon_search{
+    background-image: url(../assets/icon-search-modo-noct.svg);
 }
 .container_title_trending_reactions{
     position: relative;
@@ -244,12 +262,16 @@ body.dark .p_trending{
 }
 .showMore{
     position: relative;
+    background-image: url(../assets/CTA-ver-mas.svg);
     margin: auto;
     top: 30px;
-    width: 100px;
-}
-.verMas{
+    width: 128px;
+    height: 50px;
+    background-repeat: no-repeat;
     cursor: pointer;
+}
+body.dark .showMore{
+    background-image: url(../assets/CTA-ver+-modo-noc.svg);
 }
 /* Main */
 /* max_gif */
@@ -414,10 +436,27 @@ body.dark .reserved{
 }
 /* Footer */
 @media screen and (min-width:1024px){
-    .logo_header{
+    .logoUp{
+        position: absolute;
         left: 80px;
         width: 68px;
         height: 68px;
+        top: 25px;
+   
+        z-index: 9999;
+    }
+    .container_logo_header{
+        position: absolute;
+        left: 80px;
+        width: 68px;
+        height: 68px;
+        background-image: url(../assets/logo-desktop.svg);
+        background-size: 68px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+    body.dark .container_logo_header{
+        background-image: url(../assets/Logo-modo-noc.svg);
     }
     .createGif{
         position: absolute;
@@ -442,6 +481,10 @@ body.dark .reserved{
         width: 100%;
         height: 80px;
         background-color: transparent;
+    }
+    body.dark nav{
+        background-color: transparent;
+ 
     }
     .line_menu{
         display: none;
@@ -545,14 +588,26 @@ body.dark .reserved{
     .button_slider_left{
         position: absolute;
         left: 200px;
+        width: 40px;
+        height: 40px;
         top: 360px;
+        background-image: url(../assets/button-slider-left.svg);
         cursor: pointer;
+    }
+    body.dark .button_slider_left{
+        background-image: url(../assets/button-slider-left-md-noct.svg);
     }
     .button_slider_right{
         position: absolute;
         right: 200px;
+        width: 40px;
+        height: 40px;
+        background-image: url(..//assets/Button-Slider-right.svg);
         top: 360px;
         cursor: pointer;
+    }
+    body.dark .button_slider_right{
+        background-image: url(..//assets/button-slider-right-md-noct.svg);
     }
     /* max_gif */
     /* trending_gifos */
