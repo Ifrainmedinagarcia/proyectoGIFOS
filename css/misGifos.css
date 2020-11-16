@@ -10,3 +10,9 @@
 .mis{
     color: #9CAFC3;
 }
+.icon_trash{
+    background-image: url(../assets/icon-trash-normal.svg);
+}
+.icon_trash:hover{
+    background-image: url(../assets/icon-trash-hover.svg);
+}

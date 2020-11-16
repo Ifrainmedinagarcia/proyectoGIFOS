@@ -47,3 +47,7 @@ arrowLef.addEventListener('click', ()=>{
     fila.scrollLeft -= fila.offsetWidth;
 });
 /* Carrusel trending */
+
+/* API Trending */
+
+/* API Trending */

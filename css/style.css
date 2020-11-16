@@ -195,6 +195,21 @@ body.dark input::placeholder{
     top: 15px;
     cursor: pointer;
 }
+.x_cancel_search{
+    background-image: url(../assets/close.svg);
+    background-position: center;
+    position: absolute;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+
+}
+body.dark .x_cancel_search{
+    background-image: url(../assets/close-modo-noct.svg);
+}
 body.dark .icon_search{
     background-image: url(../assets/icon-search-modo-noct.svg);
 }
@@ -260,7 +275,6 @@ body.dark .p_trending{
     justify-content: center;
 }
 .actions_users{
-
     display: none;
 }
 .showMore{
@@ -293,8 +307,7 @@ body.dark .showMore:hover{
     background-color: rgba(255, 255, 255, .9);
     z-index: 999;
 }
-.actions_users_
-max{
+.actions_users_max{
     position: absolute;
     bottom: 20px;
     right: 0px;
@@ -440,8 +453,10 @@ body.dark h3{
     width: 18px;
     height: 18px;
     background-image: url(../assets/icon_facebook.svg);
-    background-repeat: no-repeat;
-    
+    background-repeat: no-repeat; 
+}
+body.dark .face{
+    background-image: url(../assets/icon_facebook_noc.svg);
 }
 .twitter{
     width: 18px;
@@ -449,11 +464,17 @@ body.dark h3{
     background-image: url(../assets/icon-twitter.svg);
     background-repeat: no-repeat;
 }
+body.dark .twitter{
+    background-image: url(../assets/icon_twitter_noc.svg);
+}
 .insta{
     width: 18px;
     height: 18px;
     background-image: url(../assets/icon_instagram.svg);
     background-repeat: no-repeat;
+}
+body.dark .insta{
+    background-image: url(../assets/icon_instagram_noc.svg);
 }
 .rrss{
     cursor: pointer;
@@ -774,6 +795,27 @@ body.dark .reserved{
     .foot{
         position: absolute;
         bottom: 0px;
+    }
+    .face{
+        background-image: url(../assets/icon_facebook.svg);
+        transition: all .3s ease;
+    }
+    .face:hover{
+        background-image: url(../assets/icon_facebook_hover.svg);
+    }
+    .twitter{
+        background-image: url(../assets/icon-twitter.svg);
+        transition: all .3s ease;
+    }
+    .twitter:hover{
+        background-image: url(../assets/icon-twitter-hover.svg);
+    }
+    .insta{
+        background-image: url(../assets/icon_instagram.svg);
+        transition: all .3s ease;
+    }
+    .insta:hover{
+        background-image: url(../assets/icon_instagram-hover.svg);
     }
     /* Footer */
 }
