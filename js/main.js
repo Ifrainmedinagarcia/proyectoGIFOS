@@ -1,7 +1,7 @@
 /* Funcionalidad de Menú hamburguesa */
-let menuBurguer = document.getElementById('menu_burger');
-let menuBurguerClose = document.getElementById('menu_burger_close');
-let navBar = document.getElementById('navBar');
+const menuBurguer = document.getElementById('menu_burger');
+const menuBurguerClose = document.getElementById('menu_burger_close');
+const navBar = document.getElementById('navBar');
 const funcionalidadMenuOpen = () => {
     menuBurguer.classList.add('none');
     menuBurguerClose.classList.remove('none');
@@ -15,21 +15,35 @@ const funcionalidadMenuClose = () =>{
 menuBurguer.addEventListener('click', funcionalidadMenuOpen);
 menuBurguerClose.addEventListener('click', funcionalidadMenuClose);
 /* Funcionalidad de Menú hamburguesa */
+/* Hover of Create GIFOS */
+
+/* Hover of Create GIFOS */
 /* Dark mode */
 let darkMode = document.getElementById('darkMode');
 darkMode.addEventListener('click', (e) =>{
     e.preventDefault();
     document.body.classList.toggle('dark');
-    //Guardamos el modo en localStorage
+    //localStorage for Dark Mode
     if (document.body.classList.contains('dark')) {
         localStorage.setItem('dark-mode', 'true');
     }else{
         localStorage.setItem('dark-mode', 'false');
     }
 });
-if (localStorage.getItem('dark-mode')=== 'true') {
+if (localStorage.getItem('dark-mode') === 'true') {
     document.body.classList.add('dark');
 }else{
     document.body.classList.remove('dark');
 }
 /* Dark mode */
+/* Carrusel trending */
+const fila = document.querySelector('.container_trending_gifos_flex');
+const arrowLef = document.getElementById('arrow-lef');
+const arrowRight = document.getElementById('arrow-right');
+arrowRight.addEventListener('click', ()=>{
+    fila.scrollLeft += fila.offsetWidth;
+});
+arrowLef.addEventListener('click', ()=>{
+    fila.scrollLeft -= fila.offsetWidth;
+});
+/* Carrusel trending */

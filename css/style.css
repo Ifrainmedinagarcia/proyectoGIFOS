@@ -7,16 +7,10 @@
     --bg-nigth-trending: #2223;
     --bg-trending-color: #222326;
 }
-body{
-    transition: all .2s ease;
-}
 body.dark{
     background-color: var(--bg-nigth);
 }
 /* Rules */
-.none{
-    display: none;
-}
 .nav_none{
     display: none;
 }
@@ -25,7 +19,6 @@ body.dark{
     width: 100%;
     height: 5px;
     background-color: #572EE5;
-    transition: all .2s ease;
 }
 body.dark .line_purple{
     background-color: var(--text-color-foot);
@@ -119,7 +112,6 @@ a{
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
-    transition: all .2s ease;
 }
 body.dark a{
     color: var(--bg-color);
@@ -143,7 +135,6 @@ h1{
     color: var(--text-color);
     text-align: center;
     line-height: 33px;
-    transition: all .2s ease;
 }
 body.dark h1{
     color: var(--bg-color);
@@ -204,7 +195,6 @@ body.dark input::placeholder{
     top: 15px;
     cursor: pointer;
 }
-
 body.dark .icon_search{
     background-image: url(../assets/icon-search-modo-noct.svg);
 }
@@ -224,7 +214,7 @@ body.dark .icon_search{
     font-size: 16px;
     color: var(--text-color);
     text-align: center;
-    transition: all .2s ease;
+  
 }
 body.dark .title_trending{
     color: var(--bg-color);
@@ -237,7 +227,7 @@ body.dark .title_trending{
     color: var(--text-color);
     text-align: center;
     line-height: 25px;
-    transition: all .2s ease;
+
 }
 body.dark .p_trending{
     color: var(--bg-color);
@@ -270,6 +260,7 @@ body.dark .p_trending{
     justify-content: center;
 }
 .actions_users{
+
     display: none;
 }
 .showMore{
@@ -281,9 +272,16 @@ body.dark .p_trending{
     height: 50px;
     background-repeat: no-repeat;
     cursor: pointer;
+    transition: all .3s ease;
+}
+.showMore:hover{
+    background-image: url(../assets/CTA-ver-mas-hover.svg);
 }
 body.dark .showMore{
     background-image: url(../assets/CTA-ver+-modo-noc.svg);
+}
+body.dark .showMore:hover{
+    background-image: url(../assets/CTA-ver+hover-modo-noc.svg); 
 }
 /* Main */
 /* max_gif */
@@ -295,7 +293,8 @@ body.dark .showMore{
     background-color: rgba(255, 255, 255, .9);
     z-index: 999;
 }
-.actions_users_max{
+.actions_users_
+max{
     position: absolute;
     bottom: 20px;
     right: 0px;
@@ -377,25 +376,36 @@ body.dark .section_trending_gifos{
     color: var(--text-color-foot);
     text-align: center;
     line-height: 23px;
-    transition: all .2s ease;
+  
 }
 body.dark .p_trending_gifos{
     color: var(--bg-color);
 }
 .container_trending_gifos_flex{
+    display: flex;
     position: relative;
     margin: auto;
     top: 130px;
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    flex-wrap: wrap;
+    width: 90vw;
+    align-items: center;
     justify-content: center;
+    scroll-behavior: smooth;
+    overflow: scroll;
 }
 .gifos_trending{
+    display: flex;
     width: 243px;
     height: 187px;
-    margin: 20px;
+    margin: 5px;
+    border: solid 1px black;
+}
+.info_gif{
+    position: relative;
+    width: 243px;
+    height: 187px;
+    background-color:rgba(87, 46, 229, .5);
+    opacity: 0;
+    z-index: 9999;
 }
 /* Section - Tranding - GIFOS */
 /* Footer */
@@ -419,13 +429,34 @@ body.dark h3{
 }
 .container_rrss{
     width: 90px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
     position: relative;
     top: 20px;
     margin: auto;
 }
+.face{
+    width: 18px;
+    height: 18px;
+    background-image: url(../assets/icon_facebook.svg);
+    background-repeat: no-repeat;
+    
+}
+.twitter{
+    width: 18px;
+    height: 18px;
+    background-image: url(../assets/icon-twitter.svg);
+    background-repeat: no-repeat;
+}
+.insta{
+    width: 18px;
+    height: 18px;
+    background-image: url(../assets/icon_instagram.svg);
+    background-repeat: no-repeat;
+}
 .rrss{
-    margin-left: 10px;
-    margin-left: 10px;
+    cursor: pointer;
 }
 .reserved{
     position: relative;
@@ -472,14 +503,22 @@ body.dark .reserved{
     }
     .createGif{
         position: absolute;
+        background-image: url(../assets/button-crear-gifo.svg);
         right: 60px;
         width: 54px;
         height: 54px;
         top:25px;
         z-index: 9999;
+        transition: all .3s ease;
     }
-    .createGif img {
-        position: absolute;
+    .createGif:hover{
+        background-image: url(../assets/CTA-crear-gifo-hover.svg);
+    }
+    body.dark .createGif{
+        background-image: url(../assets/CTA-crear-gifo-modo-noc.svg);
+    }
+    body.dark .createGif:hover{
+        background-image: url(../assets/CTA-crear-gifo-hover-modo-noc.svg);
     }
     .nav_none{
         display: block;
@@ -496,7 +535,6 @@ body.dark .reserved{
     }
     body.dark nav{
         background-color: transparent;
- 
     }
     .line_menu{
         display: none;
@@ -602,7 +640,7 @@ body.dark .reserved{
         left: 200px;
         width: 40px;
         height: 40px;
-        top: 360px;
+        top: 310px;
         background-image: url(../assets/button-slider-left.svg);
         cursor: pointer;
     }
@@ -614,8 +652,8 @@ body.dark .reserved{
         right: 200px;
         width: 40px;
         height: 40px;
-        background-image: url(..//assets/Button-Slider-right.svg);
-        top: 360px;
+        background-image: url(../assets/Button-Slider-right.svg);
+        top: 310px;
         cursor: pointer;
     }
     body.dark .button_slider_right{
@@ -640,7 +678,7 @@ body.dark .reserved{
         line-height: 23px;
     }
     .gifos_trending{
-        width: 357px;
+        width: 330px;
         height: 275px;
     }
     .info_gif{
@@ -649,24 +687,65 @@ body.dark .reserved{
         height: 275px;
         background-color:rgba(87, 46, 229, .5);
         opacity: 0;
-        transition: all .5s ease;
+        z-index: 9999;
+     
     }
     .info_gif:hover{
         opacity: 1;
     }
     .actions_users{
-        display: block;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
         position: absolute;
         right: 15px;
         top: 10px;
+        width: 130px;
+    }
+    .tamaño_actions_users{
+        width: 32px;
+        height: 32px;
+    }
+    .icon_fav{
+        background-image: url(../assets/icon-fav.svg);
+        cursor: pointer;
+    }
+    .icon_fav:hover{
+        background-image: url(../assets/icon-fav-hover.svg);
+    }
+    .icon_download{
+        background-image: url(../assets/icon-download.svg);
+        cursor: pointer;
+    }
+    .icon_download:hover{
+        background-image: url(../assets/icon-download-hover.svg);
+    }
+    .icon_max{
+        background-image: url(../assets/icon-max-normal.svg);
+        cursor: pointer;
+    }
+    .icon_max:hover{
+        background-image: url(../assets/icon-max-hover.svg);
     }
     .trending_left{
         display: block;
         left: 50px;
+        transition: all .3s ease;
+    }
+    .trending_left:hover{
+        background-image: url(../assets/button-slider-left-hover.svg);
     }
     .trending_right{
         display: block;
         right: 50px;
+        transition: all .3s ease;
+    }
+    .trending_right:hover{
+        background-image: url(../assets/Button-Slider-right-hover.svg);
+    }
+    .container_trending_gifos_flex{
+        width: 80vw;
+        overflow: hidden;
     }
     /* Footer */
     footer{
@@ -697,4 +776,7 @@ body.dark .reserved{
         bottom: 0px;
     }
     /* Footer */
+}
+.none{
+    display: none;
 }
