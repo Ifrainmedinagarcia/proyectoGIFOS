@@ -88,6 +88,9 @@ const createDom = (data) =>{
 
     let iconFav = document.createElement('div');
     iconFav.classList.add('icon_fav', 'tamaño_actions_users');
+    iconFav.addEventListener('click', () =>{
+        addToFavorite(data);
+    });
     actionsUser.appendChild(iconFav);
 
     let iconDownload = document.createElement('div');
@@ -104,3 +107,46 @@ const createDom = (data) =>{
 }
 trendingDom();
 /* API Trending */
+
+/* Add to favorite */
+let favoriteSection = [];
+let gifosContainerFlex = document.getElementById('gifosContainerFlex');
+let favoriteClean = document.getElementById('favoriteClean');
+
+const addToFavorite = (gifos_trending) =>{
+    favoriteSection.push(gifos_trending);
+    favoriteClean.classList.add('none');
+    createDomFavorite(gifos_trending);
+}
+
+const createDomFavorite = (items) =>{
+    let favoriteContainer = document.createElement('div');
+    favoriteContainer.classList.add('gifos_trending');
+    favoriteContainer.style.backgroundImage = `url("${items.images.downsized_medium.url}")`;
+
+    let infoGif = document.createElement('div');
+    infoGif.classList.add('info_gif');
+
+    let actionsUser = document.createElement('div');
+    actionsUser.classList.add('actions_users');
+
+    let iconFav = document.createElement('div');
+    iconFav.classList.add('icon_fav', 'tamaño_actions_users');
+
+    actionsUser.appendChild(iconFav);
+
+    let iconDownload = document.createElement('div');
+    iconDownload.classList.add('icon_download', 'tamaño_actions_users');
+    actionsUser.appendChild(iconDownload);
+
+    let iconMax = document.createElement('div');
+    iconMax.classList.add('icon_max', 'tamaño_actions_users');
+    actionsUser.appendChild(iconMax);
+
+    infoGif.appendChild(actionsUser);
+    favoriteContainer.appendChild(infoGif);
+    gifosContainerFlex.appendChild(favoriteContainer);
+
+    
+}
+/* Add to favorite */
