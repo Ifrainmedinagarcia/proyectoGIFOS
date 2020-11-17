@@ -1,5 +1,6 @@
 /* API Trending */
-let api = 'pEo6WXMy7qnbv6QjNIWmRF2ghCLUvM4L';
+let apiTrending = 'pEo6WXMy7qnbv6QjNIWmRF2ghCLUvM4L';
+let apiSearch = 'pEo6WXMy7qnbv6QjNIWmRF2ghCLUvM4L';
 let baseApi = 'https://api.giphy.com/v1/gifs/';
 /* API Trending */
 
@@ -64,7 +65,7 @@ const getTrending = async (url) => {
     }
 }
 const trendingDom = () =>{
-    let url = `${baseApi}trending?api_key=${api}&limit=25&rating=g`;
+    let url = `${baseApi}trending?api_key=${apiTrending}&limit=25&rating=g`;
     let result = getTrending(url);
     result.then((resp)=>{
         resp.data.map(item=>{
@@ -107,7 +108,36 @@ const createDom = (data) =>{
 }
 trendingDom();
 /* API Trending */
+/* API Search */
+let searchValue = document.getElementById('search_value');
+let searchBtn = document.getElementById('btn_search');
 
+const getSearch = async (urlSearch) => {
+    try {
+        let response = await fetch(urlSearch);
+        response = await response.json();
+        return response;
+    } catch (e) {
+        console.log(e);
+    }
+}
+const searchDom = (title) =>{
+    let urlSearch = `${baseApi}search?api_key=${apiSearch}&q=${title}`;
+    let result = getTrending(urlSearch);
+    result.then((resp)=>{
+        resp.data.map(items=>{
+            console.log(items);
+        })
+    }).catch((e) => {
+        console.log("a ocurrido un error" + e);
+    });
+}
+searchBtn.addEventListener('click', ()=>{
+    searchDom(searchValue.value);
+});
+
+
+/* API Search */
 /* Add to favorite */
 let favoriteSection = [];
 let gifosContainerFlex = document.getElementById('gifosContainerFlex');
@@ -118,7 +148,6 @@ const addToFavorite = (gifos_trending) =>{
     favoriteClean.classList.add('none');
     createDomFavorite(gifos_trending);
 }
-
 const createDomFavorite = (items) =>{
     let favoriteContainer = document.createElement('div');
     favoriteContainer.classList.add('gifos_trending');
