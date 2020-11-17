@@ -1,3 +1,8 @@
+/* API Trending */
+let api = 'pEo6WXMy7qnbv6QjNIWmRF2ghCLUvM4L';
+let baseApi = 'https://api.giphy.com/v1/gifs/';
+/* API Trending */
+
 /* Funcionalidad de Menú hamburguesa */
 const menuBurguer = document.getElementById('menu_burger');
 const menuBurguerClose = document.getElementById('menu_burger_close');
@@ -48,12 +53,32 @@ arrowLef.addEventListener('click', ()=>{
 /* Carrusel trending */
 
 /* API Trending */
-const api = 'https://api.giphy.com/v1/gifs/trending?api_key=pEo6WXMy7qnbv6QjNIWmRF2ghCLUvM4L&limit=25&rating=g'
+const getTrending = async (url) => {
+    try {
+        let response = await fetch(url);
+        response = await response.json();
+        return response;
 
-const createDom = () =>{
+    } catch (e) {
+        console.log(e);
+    }
+}
+const trendingDom = () =>{
+    let url = `${baseApi}trending?api_key=${api}&limit=25&rating=g`;
+    let result = getTrending(url);
+    result.then((resp)=>{
+        resp.data.map(item=>{
+            createDom(item);
+        })
+    }).catch((e) => {
+        console.log("a ocurrido un error" + e);
+    });
+} 
+const createDom = (data) =>{
     let containerTrending = document.getElementById('containerTrending');
     let gifosTrending = document.createElement('div');
     gifosTrending.classList.add('gifos_trending');
+    gifosTrending.style.backgroundImage = `url("${data.images.downsized_medium.url}")`;
 
     let infoGif = document.createElement('div');
     infoGif.classList.add('info_gif');
@@ -71,10 +96,11 @@ const createDom = () =>{
 
     let iconMax = document.createElement('div');
     iconMax.classList.add('icon_max', 'tamaño_actions_users');
-    actionsUser.appendChild(iconMax);
 
+    actionsUser.appendChild(iconMax);
     infoGif.appendChild(actionsUser);
     gifosTrending.appendChild(infoGif);
     containerTrending.appendChild(gifosTrending);
 }
+trendingDom();
 /* API Trending */
