@@ -1,3 +1,12 @@
+:root{
+    --bg-color: #eee;
+    --text-color: #572EE5;
+    --text-color-span: #5ED7C6;
+    --text-color-foot: #000000;
+    --bg-nigth: #37383C;
+    --bg-nigth-trending: #2223;
+    --bg-trending-color: #222326;
+}
 body.dark .line_purple{
     background-color: var(--text-color-foot);
 }
@@ -67,6 +76,9 @@ body.dark .insta{
 }
 body.dark .reserved{
     color: var(--bg-color);
+}
+body.dark .sugerencia:hover{
+    color:var(--bg-color);
 }
 @media screen and (min-width:1024px){
     body.dark .container_logo_header{
