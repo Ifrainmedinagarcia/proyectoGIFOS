@@ -52,6 +52,48 @@ arrowLef.addEventListener('click', ()=>{
     fila.scrollLeft -= fila.offsetWidth;
 });
 /* Carrusel trending */
+/* Add to favorite */
+let favoriteSection = [];
+let gifosContainerFlex = document.getElementById('gifosContainerFlex');
+let favoriteClean = document.getElementById('favoriteClean');
+
+const addToFavorite = (gifos_trending) =>{
+    favoriteSection.push(gifos_trending);
+    favoriteClean.classList.add('none');
+    createDomFavorite(gifos_trending);
+}
+const createDomFavorite = (items) =>{
+    let favoriteContainer = document.createElement('div');
+    favoriteContainer.classList.add('gifos_trending');
+    favoriteContainer.style.backgroundImage = `url("${items.images.downsized_medium.url}")`;
+
+    let infoGif = document.createElement('div');
+    infoGif.classList.add('info_gif');
+
+    let actionsUser = document.createElement('div');
+    actionsUser.classList.add('actions_users');
+
+    let iconFav = document.createElement('div');
+    iconFav.classList.add('icon_fav', 'tamaño_actions_users');
+
+    actionsUser.appendChild(iconFav);
+
+    let iconDownload = document.createElement('div');
+    iconDownload.classList.add('icon_download', 'tamaño_actions_users');
+    actionsUser.appendChild(iconDownload);
+
+    let iconMax = document.createElement('div');
+    iconMax.classList.add('icon_max', 'tamaño_actions_users');
+    actionsUser.appendChild(iconMax);
+
+    infoGif.appendChild(actionsUser);
+    favoriteContainer.appendChild(infoGif);
+    gifosContainerFlex.appendChild(favoriteContainer);
+
+    
+}
+/* Add to favorite */
+
 
 /* API Trending */
 const getTrending = async (url) => {
@@ -108,50 +150,41 @@ const createDom = (data) =>{
 }
 trendingDom();
 /* API Trending */
+
 /* API Search */
 let searchValue = document.getElementById('search_value');
 let searchBtn = document.getElementById('btn_search');
-
-const getSearch = async (urlSearch) => {
+let sectionSearch = document.getElementById('sectionSearch');
+let searchResult = document.getElementById('search_result');
+const getSearch = async (urlS) => {
     try {
-        let response = await fetch(urlSearch);
+        let response = await fetch(urlS);
         response = await response.json();
         return response;
     } catch (e) {
         console.log(e);
     }
 }
-const searchDom = (title) =>{
+const search = (title) =>{
     let urlSearch = `${baseApi}search?api_key=${apiSearch}&q=${title}`;
-    let result = getTrending(urlSearch);
+    let result = getSearch(urlSearch);
     result.then((resp)=>{
+        /* sectionSearch.innerHTML = ''; */
         resp.data.map(items=>{
+            domSearch(items);
             console.log(items);
         })
     }).catch((e) => {
-        console.log("a ocurrido un error" + e);
+        console.log("a ocurrido un error " + e);
     });
 }
-searchBtn.addEventListener('click', ()=>{
-    searchDom(searchValue.value);
-});
-
-
-/* API Search */
-/* Add to favorite */
-let favoriteSection = [];
-let gifosContainerFlex = document.getElementById('gifosContainerFlex');
-let favoriteClean = document.getElementById('favoriteClean');
-
-const addToFavorite = (gifos_trending) =>{
-    favoriteSection.push(gifos_trending);
-    favoriteClean.classList.add('none');
-    createDomFavorite(gifos_trending);
-}
-const createDomFavorite = (items) =>{
-    let favoriteContainer = document.createElement('div');
-    favoriteContainer.classList.add('gifos_trending');
-    favoriteContainer.style.backgroundImage = `url("${items.images.downsized_medium.url}")`;
+const domSearch = (gifSearch) =>{
+    let h1Title = document.getElementById('title');
+    h1Title.textContent = searchValue.value;
+    
+    let gifosTrending = document.createElement('div');
+    gifosTrending.classList.add('gifos_trending');
+    gifosTrending.style.backgroundImage = `url("${gifSearch.images.downsized_medium.url}")`;
 
     let infoGif = document.createElement('div');
     infoGif.classList.add('info_gif');
@@ -161,7 +194,9 @@ const createDomFavorite = (items) =>{
 
     let iconFav = document.createElement('div');
     iconFav.classList.add('icon_fav', 'tamaño_actions_users');
-
+    iconFav.addEventListener('click', () =>{
+        addToFavorite(data);
+    });
     actionsUser.appendChild(iconFav);
 
     let iconDownload = document.createElement('div');
@@ -173,9 +208,13 @@ const createDomFavorite = (items) =>{
     actionsUser.appendChild(iconMax);
 
     infoGif.appendChild(actionsUser);
-    favoriteContainer.appendChild(infoGif);
-    gifosContainerFlex.appendChild(favoriteContainer);
+    gifosTrending.appendChild(infoGif);
+    searchResult.appendChild(gifosTrending);
 
-    
 }
-/* Add to favorite */
+
+searchBtn.addEventListener('click', ()=>{
+    search(searchValue.value);
+});
+/* API Search */
+

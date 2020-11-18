@@ -1,0 +1,90 @@
+body.dark .line_purple{
+    background-color: var(--text-color-foot);
+}
+body.dark .container_logo_header{
+    background-image: url(../assets/logo-mobile-modo-noct.svg);
+}
+body.dark .menu{
+    background-image: url(../assets/burger-modo-noct.svg);
+}
+body.dark .close_x{
+    background-image: url(../assets/close-modo-noct.svg);
+}
+body.dark nav{
+    background-color: var(--text-color-foot);
+    opacity: 100%;
+}
+body.dark a{
+    color: var(--bg-color);
+}
+body.dark h1{
+    color: var(--bg-color);
+}
+body.dark .container_search_icon{
+    border: solid 1px var(--bg-color);
+}
+body.dark input::placeholder{
+    color: var(--bg-color);
+}
+body.dark .x_cancel_search{
+    background-image: url(../assets/close-modo-noct.svg);
+}
+body.dark .icon_search{
+    background-image: url(../assets/icon-search-modo-noct.svg);
+}
+body.dark .title_trending{
+    color: var(--bg-color);
+}
+body.dark .p_trending{
+    color: var(--bg-color);
+}
+body.dark .p_trending{
+    color: var(--bg-color);
+}
+body.dark .showMore{
+    background-image: url(../assets/CTA-ver+-modo-noc.svg);
+}
+body.dark .showMore:hover{
+    background-image: url(../assets/CTA-ver+hover-modo-noc.svg); 
+}
+body.dark .section_trending_gifos{
+    background-color: var(--bg-trending-color);
+}
+body.dark .p_trending_gifos{
+    color: var(--bg-color);
+}
+body.dark h3{
+    color: var(--bg-color);
+}
+body.dark .face{
+    background-image: url(../assets/icon_facebook_noc.svg);
+}
+body.dark .twitter{
+    background-image: url(../assets/icon_twitter_noc.svg);
+}
+body.dark .insta{
+    background-image: url(../assets/icon_instagram_noc.svg);
+}
+body.dark .reserved{
+    color: var(--bg-color);
+}
+@media screen and (min-width:1024px){
+    body.dark .container_logo_header{
+        background-image: url(../assets/Logo-modo-noc.svg);
+    }
+    body.dark .createGif{
+        background-image: url(../assets/CTA-crear-gifo-modo-noc.svg);
+    }
+    body.dark .createGif:hover{
+        background-image: url(../assets/CTA-crear-gifo-hover-modo-noc.svg);
+    }
+    body.dark nav{
+        background-color: transparent;
+    }
+    body.dark .button_slider_left{
+        background-image: url(../assets/button-slider-left-md-noct.svg);
+    }
+    body.dark .button_slider_right{
+        background-image: url(..//assets/button-slider-right-md-noct.svg);
+    }
+}

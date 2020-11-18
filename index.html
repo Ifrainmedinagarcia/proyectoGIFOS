@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/darkMode.css">
     <link  rel="icon" href="assets/logo-mobile-modo-noct.svg" type="image/png" />
     <title>GIFOS</title>
 </head>
@@ -66,20 +67,16 @@
             <h2 class="title_trending">Trending:</h2>
             <p class="p_trending">Reactions, Entertainment, Sports, Stickers, Artists</p>
         </div>
-        <div class="line_search"></div>
-        <section class="section_search none">
-            <h1></h1>
 
-            <article class="search_gifos_flex">
-                <div class="gifos_trending">
-                    <div class="info_gif">
-                        <div class="actions_users">
-                            <div class="icon_fav tamaño_actions_users"></div>
-                            <div class="icon_download tamaño_actions_users"></div>
-                            <div class="icon_max tamaño_actions_users"></div>
-                        </div>
-                    </div>
-                </div>
+        <div class="line_search"></div>
+
+        <section id="sectionSearch" class="section_search">
+    
+
+            <h1 id="title"></h1>
+       
+
+            <article id="search_result" class="search_gifos_flex">
             </article>
 
 
@@ -111,4 +108,3 @@
     <script src="js/main.js"></script>
 </body>
 </html>
-

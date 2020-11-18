@@ -20,9 +20,6 @@ body.dark{
     height: 5px;
     background-color: #572EE5;
 }
-body.dark .line_purple{
-    background-color: var(--text-color-foot);
-}
 .trending_left{
     display: none;
 }
@@ -46,9 +43,6 @@ header{
     background-repeat: no-repeat;
     cursor: pointer;
 }
-body.dark .container_logo_header{
-    background-image: url(../assets/logo-mobile-modo-noct.svg);
-}
 .container_svg_menu{
     position: absolute;
     right: 26px;
@@ -60,14 +54,8 @@ body.dark .container_logo_header{
     background-image: url(../assets/burger.svg);
     background-repeat: no-repeat;
 }
-body.dark .menu{
-    background-image: url(../assets/burger-modo-noct.svg);
-}
 .close_x{
     background-image: url(../assets/close.svg);
-}
-body.dark .close_x{
-    background-image: url(../assets/close-modo-noct.svg);
 }
 .line_menu{
     position: relative;
@@ -85,10 +73,6 @@ nav{
     background-color: var(--text-color);
     opacity: 90%;
     z-index: 100;
-}
-body.dark nav{
-    background-color: var(--text-color-foot);
-    opacity: 100%;
 }
 ul{
     position: relative;
@@ -112,9 +96,6 @@ a{
     font-style: normal;
     font-weight: 700;
 }
-body.dark a{
-    color: var(--bg-color);
-}
 .hom{
     color: #9CAFC3;
 }
@@ -134,9 +115,6 @@ h1{
     color: var(--text-color);
     text-align: center;
     line-height: 33px;
-}
-body.dark h1{
-    color: var(--bg-color);
 }
 span{
     color: var(--text-color-span);
@@ -162,9 +140,6 @@ span{
     border-radius: 27px;
     border: solid 1px #572EE5;
 }
-body.dark .container_search_icon{
-    border: solid 1px var(--bg-color);
-}
 input{
     position: absolute;
     right: 0;
@@ -181,9 +156,6 @@ input::placeholder{
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
-}
-body.dark input::placeholder{
-    color: var(--bg-color);
 }
 .icon_search{
     background-image: url(../assets/icon-search.svg);
@@ -206,12 +178,6 @@ body.dark input::placeholder{
     cursor: pointer;
 
 }
-body.dark .x_cancel_search{
-    background-image: url(../assets/close-modo-noct.svg);
-}
-body.dark .icon_search{
-    background-image: url(../assets/icon-search-modo-noct.svg);
-}
 .container_title_trending_reactions{
     position: relative;
     margin: auto;
@@ -230,9 +196,6 @@ body.dark .icon_search{
     text-align: center;
   
 }
-body.dark .title_trending{
-    color: var(--bg-color);
-}
 .p_trending{
     font-family: 'Montserrat';
     font-style: normal;
@@ -242,12 +205,6 @@ body.dark .title_trending{
     text-align: center;
     line-height: 25px;
 
-}
-body.dark .p_trending{
-    color: var(--bg-color);
-}
-body.dark .p_trending{
-    color: var(--bg-color);
 }
 .line_search{
     position: relative;
@@ -289,12 +246,6 @@ body.dark .p_trending{
 }
 .showMore:hover{
     background-image: url(../assets/CTA-ver-mas-hover.svg);
-}
-body.dark .showMore{
-    background-image: url(../assets/CTA-ver+-modo-noc.svg);
-}
-body.dark .showMore:hover{
-    background-image: url(../assets/CTA-ver+hover-modo-noc.svg); 
 }
 /* Main */
 /* max_gif */
@@ -363,9 +314,6 @@ h4{
     height: 430px;
     background-color: #F3F5F8;;
 }
-body.dark .section_trending_gifos{
-    background-color: var(--bg-trending-color);
-}
 .container_title_trending{
     position: relative;
     margin: auto;
@@ -387,9 +335,6 @@ body.dark .section_trending_gifos{
     text-align: center;
     line-height: 23px;
   
-}
-body.dark .p_trending_gifos{
-    color: var(--bg-color);
 }
 .container_trending_gifos_flex{
     display: flex;
@@ -435,9 +380,6 @@ h3{
     letter-spacing: 0;
     text-align: center;
 }
-body.dark h3{
-    color: var(--bg-color);
-}
 .container_rrss{
     width: 90px;
     display: flex;
@@ -453,26 +395,17 @@ body.dark h3{
     background-image: url(../assets/icon_facebook.svg);
     background-repeat: no-repeat; 
 }
-body.dark .face{
-    background-image: url(../assets/icon_facebook_noc.svg);
-}
 .twitter{
     width: 18px;
     height: 18px;
     background-image: url(../assets/icon-twitter.svg);
     background-repeat: no-repeat;
 }
-body.dark .twitter{
-    background-image: url(../assets/icon_twitter_noc.svg);
-}
 .insta{
     width: 18px;
     height: 18px;
     background-image: url(../assets/icon_instagram.svg);
     background-repeat: no-repeat;
-}
-body.dark .insta{
-    background-image: url(../assets/icon_instagram_noc.svg);
 }
 .rrss{
     cursor: pointer;
@@ -488,9 +421,6 @@ body.dark .insta{
     letter-spacing: 0;
     line-height: 20px;
     text-align: center;
-}
-body.dark .reserved{
-    color: var(--bg-color);
 }
 .foot{
     position: absolute;
@@ -517,9 +447,6 @@ body.dark .reserved{
         background-repeat: no-repeat;
         cursor: pointer;
     }
-    body.dark .container_logo_header{
-        background-image: url(../assets/Logo-modo-noc.svg);
-    }
     .createGif{
         position: absolute;
         background-image: url(../assets/button-crear-gifo.svg);
@@ -533,12 +460,6 @@ body.dark .reserved{
     .createGif:hover{
         background-image: url(../assets/CTA-crear-gifo-hover.svg);
     }
-    body.dark .createGif{
-        background-image: url(../assets/CTA-crear-gifo-modo-noc.svg);
-    }
-    body.dark .createGif:hover{
-        background-image: url(../assets/CTA-crear-gifo-hover-modo-noc.svg);
-    }
     .nav_none{
         display: block;
     }
@@ -550,9 +471,6 @@ body.dark .reserved{
         top: 15px;
         width: 100%;
         height: 80px;
-        background-color: transparent;
-    }
-    body.dark nav{
         background-color: transparent;
     }
     .line_menu{
@@ -661,9 +579,6 @@ body.dark .reserved{
         background-image: url(../assets/button-slider-left.svg);
         cursor: pointer;
     }
-    body.dark .button_slider_left{
-        background-image: url(../assets/button-slider-left-md-noct.svg);
-    }
     .button_slider_right{
         position: absolute;
         right: 200px;
@@ -672,9 +587,6 @@ body.dark .reserved{
         background-image: url(../assets/Button-Slider-right.svg);
         top: 310px;
         cursor: pointer;
-    }
-    body.dark .button_slider_right{
-        background-image: url(..//assets/button-slider-right-md-noct.svg);
     }
     /* max_gif */
     /* trending_gifos */
