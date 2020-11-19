@@ -24,8 +24,10 @@ darkMode.addEventListener('click', (e) =>{
     //localStorage for Dark Mode
     if (document.body.classList.contains('dark')) {
         localStorage.setItem('dark-mode', 'true');
+        darkMode.textContent = 'Modo Diurno';
     }else{
         localStorage.setItem('dark-mode', 'false');
+        darkMode.textContent = 'Modo Nocturno';
     }
 });
 if (localStorage.getItem('dark-mode') === 'true') {
@@ -68,10 +70,16 @@ const createDom = (data, containerMain) =>{
 
     let iconDownload = document.createElement('div');
     iconDownload.classList.add('icon_download', 'tamaño_actions_users');
+    /*  iconDownload.addEventListener('click', () =>{
+        iconDownload(data);
+    }); */
     actionsUser.appendChild(iconDownload);
 
     let iconMax = document.createElement('div');
     iconMax.classList.add('icon_max', 'tamaño_actions_users');
+    iconMax.addEventListener('click', ()=>{
+        max();
+    });
 
     actionsUser.appendChild(iconMax);
     infoGif.appendChild(actionsUser);
@@ -86,22 +94,38 @@ let gifosContainerFlex = document.getElementById('gifosContainerFlex');
 let favoriteClean = document.getElementById('favoriteClean');
 const addToFavorite = (gifosAdd) =>{
     favoriteSection.push(gifosAdd);
+    console.log(favoriteSection);
+    let withoutRepeated = favoriteSection.filter((elementCurrent, indexCurrent, array) => array.indexOf(elementCurrent) === indexCurrent);
     favoriteClean.classList.add('none');
-    createDomFavorite(gifosAdd);
+    gifosContainerFlex.innerHTML = '';
+    withoutRepeated.map(elemento => createDomFavorite(elemento));
 }
 const createDomFavorite = (items) =>{
     createDom(items, gifosContainerFlex); 
 }
 /* Add to favorite */
 
+/* Function max */
+let maxSection = document.getElementById('maxSection');
+let closeMaxGif = document.querySelector('.close_max_gif');
+const max = () =>{
+    maxSection.classList.remove('none');
+}
+closeMaxGif.addEventListener('click', ()=>{
+    maxSection.classList.add('none');
+});
+/* Function max */
+
+/* Function download */
+
+/* Function download */
+
 /* API Trending */
 const trendingDom = () =>{
-    let url = `${baseApi}trending?api_key=${apiTrending}&limit=25&rating=g`;
+    let url = `${baseApi}trending?api_key=${apiSearch}&limit=25&rating=g`;
     let result = getIfoApi(url);
     result.then((resp)=>{
-        resp.data.map(item=>{
-            createDomTrending(item);
-        })
+        resp.data.map(item => createDomTrending(item));
     }).catch((e) => {
         alert("a ocurrido un error" + e);
     });
@@ -124,9 +148,7 @@ const search = (title) =>{
     let result = getIfoApi(urlSearch);
     searchResult.innerHTML = '';
     result.then((resp)=>{
-        resp.data.map(items=>{
-            domSearch(items);
-        })
+        resp.data.map(items => domSearch(items));
     }).catch((e) => {
         console.log("a ocurrido un error " + e);
     });
@@ -144,6 +166,10 @@ searchBtn.addEventListener('click', ()=>{
         alert('Por favor introduce un término de búsqueda');
     }
 });
-
 /* API Search */
+
+/* Buscador con sugerencia */
+
+/* Buscador con sugerencia */
+
 

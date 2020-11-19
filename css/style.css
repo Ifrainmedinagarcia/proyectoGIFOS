@@ -131,14 +131,18 @@ span{
     height: 130px;
 }
 .container_search_icon{
-    position: relative;
+    position: absolute;
+    left: 0;
+    right: 0;
     margin: auto;
-    top:25px;
+    top: 350px;
     width: 90vw;
     max-width: 551px;
     height: auto;
     border-radius: 27px;
+    background-color: white;
     border: solid 1px #572EE5;
+    z-index: 5555;
 }
 input{
     position: relative;
@@ -158,14 +162,21 @@ input{
     background-color: #9CAFC3;;
 }
 .sugerencia{
-    width: 80%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.sugerencia:hover{
+    background-color: rgba(25, 16, 14, 0.1);
+}
+.sugerenciaP{
+    width: 90%;
     position: relative;
     left: 35px;
     color: #9CAFC3;
     cursor: pointer;
     transition: all .3s ease;
 }
-.sugerencia:hover{
+.sugerenciaP:hover{
     color: var(--text-color);
 }
 input::placeholder{
@@ -199,7 +210,7 @@ input::placeholder{
 .container_title_trending_reactions{
     position: relative;
     margin: auto;
-    top:31px;
+    top:90px;
     width: 80vw;
     max-width: 400px;
     height: 50px;
@@ -212,7 +223,6 @@ input::placeholder{
     font-size: 16px;
     color: var(--text-color);
     text-align: center;
-  
 }
 .p_trending{
     font-family: 'Montserrat';
@@ -237,7 +247,7 @@ input::placeholder{
     position: relative;
     margin: auto;
     width: 100%;
-    top: 120px;
+    top: 130px;
 }
 .search_gifos_flex{
     position: relative;
@@ -273,7 +283,7 @@ input::placeholder{
     height: 100%;
     top: 0;
     background-color: rgba(255, 255, 255, .9);
-    z-index: 999;
+    z-index: 99999;
 }
 .actions_users_max{
     position: absolute;
@@ -284,6 +294,12 @@ input::placeholder{
     position: absolute;
     right: 40px;
     top: 80px;
+    width: 20px;
+    height: 20px;
+    background-image: url(../assets/close.svg);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
 .container_gif_max_title_actions{
     position: relative;
@@ -315,6 +331,7 @@ h4{
     font-size: 15px;
     text-align: center;
     margin-bottom: -12px;
+    color: black;
 }
 .p_gif_max{
     font-family: 'Montserrat';
@@ -372,6 +389,7 @@ h4{
     margin: 5px;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 .info_gif{
     position: relative;
@@ -526,6 +544,12 @@ h3{
         width: 600px;
         height: 99px;
     }
+    .container_search_icon{
+        top: 313px;
+    }
+    .section_search{
+        top: 150px;
+    }
     h1{
         font-size: 35px;
         line-height: 50px;
@@ -541,11 +565,11 @@ h3{
         width: 399px;
         height: 190px;
     }
-    .container_search_icon{
-        position: relative;
-    }
     .container_title_trending_reactions{
-        top:70px;
+        top:140px;
+    }
+    .line_search{
+        top: 60px;
     }
     /* Main */
     /* max_gif */
