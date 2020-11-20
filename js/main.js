@@ -16,26 +16,6 @@ menuBurguer.addEventListener('click', funcionalidadMenuOpen);
 menuBurguerClose.addEventListener('click', funcionalidadMenuClose);
 /* Funcionalidad de Menú hamburguesa */
 
-/* Dark mode */
-let darkMode = document.getElementById('darkMode');
-darkMode.addEventListener('click', (e) =>{
-    e.preventDefault();
-    document.body.classList.toggle('dark');
-    //localStorage for Dark Mode
-    if (document.body.classList.contains('dark')) {
-        localStorage.setItem('dark-mode', 'true');
-        darkMode.textContent = 'Modo Diurno';
-    }else{
-        localStorage.setItem('dark-mode', 'false');
-        darkMode.textContent = 'Modo Nocturno';
-    }
-});
-if (localStorage.getItem('dark-mode') === 'true') {
-    document.body.classList.add('dark');
-}else{
-    document.body.classList.remove('dark');
-}
-/* Dark mode */
 
 /* Carrusel trending */
 const fila = document.querySelector('.container_trending_gifos_flex');
@@ -54,18 +34,27 @@ const createDom = (data, containerMain) =>{
     let gifosTrending = document.createElement('div');
     gifosTrending.classList.add('gifos_trending');
     gifosTrending.style.backgroundImage = `url("${data.images.downsized_medium.url}")`;
+    let contador = 0;
 
     let infoGif = document.createElement('div');
     infoGif.classList.add('info_gif');
 
     let actionsUser = document.createElement('div');
     actionsUser.classList.add('actions_users');
-
     let iconFav = document.createElement('div');
     iconFav.classList.add('icon_fav', 'tamaño_actions_users');
     iconFav.addEventListener('click', () =>{
-        addToFavorite(data);
-        iconFav.style.backgroundImage = `url("../assets/icon-fav-active.svg")`;
+            if (contador === 0) {
+                iconFav.classList.remove('icon_fav');
+                iconFav.classList.add('icon_fav_remove');
+                addToFavorite(data);
+                contador = 1;
+            }else{
+                iconFav.classList.add('icon_fav');
+                iconFav.classList.remove('icon_fav_remove');
+                //removerGifToFavorite();
+                contador = 0;
+            }
     });
     actionsUser.appendChild(iconFav);
 

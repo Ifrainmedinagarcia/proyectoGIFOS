@@ -369,7 +369,6 @@ h4{
     color: var(--text-color-foot);
     text-align: center;
     line-height: 23px;
-  
 }
 .container_trending_gifos_flex{
     display: flex;
@@ -470,7 +469,6 @@ h3{
         width: 68px;
         height: 68px;
         top: 25px;
-   
         z-index: 9999;
     }
     .container_logo_header{
@@ -673,10 +671,13 @@ h3{
         background-image: url(../assets/icon-fav.svg);
         cursor: pointer;
     }
+    .icon_fav_remove{
+        cursor: pointer;
+        background-image: url(../assets/icon-fav-active.svg);
+    }
     .icon_fav:hover{
         background-image: url(../assets/icon-fav-hover.svg);
     }
-  
     .icon_download{
         background-image: url(../assets/icon-download.svg);
         cursor: pointer;
