@@ -18,7 +18,7 @@ body.dark{
     position: relative;
     width: 100%;
     height: 5px;
-    background-color: #572EE5;
+    background-color: var(--text-color);
 }
 .trending_left{
     display: none;
@@ -676,6 +676,7 @@ h3{
     .icon_fav:hover{
         background-image: url(../assets/icon-fav-hover.svg);
     }
+  
     .icon_download{
         background-image: url(../assets/icon-download.svg);
         cursor: pointer;
