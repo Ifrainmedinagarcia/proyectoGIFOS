@@ -33,7 +33,7 @@ arrowLef.addEventListener('click', ()=>{
 const createDom = (data, containerMain) =>{
     let gifosTrending = document.createElement('div');
     gifosTrending.classList.add('gifos_trending');
-    gifosTrending.style.backgroundImage = `url("${data.images.downsized_medium.url}")`;
+    gifosTrending.style.backgroundImage = `url("${data.images.original.url}")`;
     let contador = 0;
 
     let infoGif = document.createElement('div');

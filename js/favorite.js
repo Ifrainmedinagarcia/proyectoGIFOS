@@ -11,8 +11,8 @@ const addToFavorite = (gifosAdd) =>{
 }
 const createDomFavorite = (items) =>{
     createDom(items, gifosContainerFlex);
-
 }
+
 /* Add to favorite */
 /* remover Gif To Favorite */
 /* const removerGifToFavorite = () =>{

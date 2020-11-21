@@ -1,7 +1,7 @@
-/* API Trending */
 let apiSearch = 'pEo6WXMy7qnbv6QjNIWmRF2ghCLUvM4L';
 let baseApi = 'https://api.giphy.com/v1/gifs/';
-/* API Trending */
+let seggestionsApi = 'https://api.giphy.com/v1/tags/related/'; 
+
 /*Get Info Api */
 const getIfoApi = async (url) => {
     try {
