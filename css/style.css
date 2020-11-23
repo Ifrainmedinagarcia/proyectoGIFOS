@@ -72,7 +72,7 @@ nav{
     height: 100vh;
     background-color: var(--text-color);
     opacity: 90%;
-    z-index: 100;
+    z-index: 9999;
 }
 ul{
     position: relative;
@@ -285,11 +285,6 @@ input::placeholder{
     background-color: rgba(255, 255, 255, .9);
     z-index: 99999;
 }
-.actions_users_max{
-    position: absolute;
-    bottom: 20px;
-    right: 0px;
-}
 .close_max_gif{
     position: absolute;
     right: 40px;
@@ -302,43 +297,26 @@ input::placeholder{
     cursor: pointer;
 }
 .container_gif_max_title_actions{
+    display: flex;
     position: relative;
+    background-color: blue;
     margin: auto;
-    width: 70vw;
+    width: 90vw;
     height: 400px;
-    top: 130px;
+    top: 200px;
     max-width: 695px;
+    scroll-behavior: smooth;
+    overflow-x: scroll;
 }
-.max_gifos{
-    position: absolute;
-    width: 70vw;
-    max-width: 695px;
-    height: 275px;
-    border: solid 1px black;
-    top: 50%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.title_max_gif{
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-}
-h4{
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 15px;
-    text-align: center;
-    margin-bottom: -12px;
-    color: black;
-}
-.p_gif_max{
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    text-align: center;
+.gifMax{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 /* max_gif */
 /* Section - Tranding - GIFOS */

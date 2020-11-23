@@ -22,8 +22,6 @@ const createDomFavorite = () =>{
     gifLocal.forEach(elemento => createDom(elemento, gifosContainerFlex));
 }
 
-
-
 /* Add to favorite */
 /* remover Gif To Favorite */
 /* const removerGifToFavorite = () =>{
