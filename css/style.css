@@ -277,7 +277,6 @@ input::placeholder{
 }
 /* Main */
 /* max_gif */
-
 .max_gif{
     position: fixed;
     width: 100%;
@@ -651,6 +650,11 @@ h3{
         background-color:rgba(87, 46, 229, .5);
         opacity: 0;
     }
+    .container_title_gifos_card{
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+    }
     .info_gif:hover{
         opacity: 1;
     }
@@ -667,6 +671,23 @@ h3{
     .tamaño_actions_users{
         width: 32px;
         height: 32px;
+    }
+    .p_gifos_card{
+        
+        color: white;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        text-align: left;
+    }
+    .title_gifos_card{
+        text-align: left;
+        color: white;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
     }
     .icon_fav{
         background-image: url(../assets/icon-fav.svg);

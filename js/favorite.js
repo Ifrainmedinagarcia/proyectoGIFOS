@@ -18,6 +18,7 @@ const saveLocal = (withoutRepeated) =>{
 const createDomFavorite = () =>{
     gifosContainerFlex.innerHTML = '';
     let gifLocal = JSON.parse(localStorage.getItem('gif')) || [];
+    console.log(gifLocal);
     gifLocal.forEach(elemento => createDom(elemento, gifosContainerFlex));
 }
 

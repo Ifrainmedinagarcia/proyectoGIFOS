@@ -1,3 +1,4 @@
+
 /* Funcionalidad de Menú hamburguesa */
 const menuBurguer = document.getElementById('menu_burger');
 const menuBurguerClose = document.getElementById('menu_burger_close');
@@ -29,6 +30,7 @@ arrowLef.addEventListener('click', ()=>{
 });
 /* Carrusel trending */
 
+
 /* Function create Dom */
 const createDom = (data, containerMain) =>{
     let gifosTrending = document.createElement('div');
@@ -44,17 +46,17 @@ const createDom = (data, containerMain) =>{
     let iconFav = document.createElement('div');
     iconFav.classList.add('icon_fav', 'tamaño_actions_users');
     iconFav.addEventListener('click', () =>{
-            if (contador === 0) {
-                iconFav.classList.remove('icon_fav');
-                iconFav.classList.add('icon_fav_remove');
-                addToFavorite(data);
-                contador = 1;
-            }else{
-                iconFav.classList.add('icon_fav');
-                iconFav.classList.remove('icon_fav_remove');
-                //removerGifToFavorite();
-                contador = 0;
-            }
+        if (contador === 0) {
+            iconFav.classList.remove('icon_fav');
+            iconFav.classList.add('icon_fav_remove');
+            //addToFavorite(data);
+            contador = 1;
+        }else{
+            iconFav.classList.add('icon_fav');
+            iconFav.classList.remove('icon_fav_remove');
+            //removerGifToFavorite();
+            contador = 0;
+        }
     });
     actionsUser.appendChild(iconFav);
 
@@ -70,9 +72,28 @@ const createDom = (data, containerMain) =>{
     iconMax.addEventListener('click', ()=>{
         max();
     });
-
     actionsUser.appendChild(iconMax);
+
+
+    let titleCardContainer = document.createElement('div');
+    titleCardContainer.classList.add('container_title_gifos_card');
+
+    let pGifosUser = document.createElement('p');
+    pGifosUser.classList.add('p_gifos_card');
+    pGifosUser.textContent = data.username;
+    
+    titleCardContainer.appendChild(pGifosUser);
+
+    let titleGifosCard = document.createElement('p');
+    titleGifosCard.classList.add('title_gifos_card');
+    titleGifosCard.textContent = data.title;
+
+    titleCardContainer.appendChild(titleGifosCard);
+
+
     infoGif.appendChild(actionsUser);
+    infoGif.appendChild (titleCardContainer);
+
     gifosTrending.appendChild(infoGif);
     containerMain.appendChild(gifosTrending);
 }
