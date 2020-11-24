@@ -1,3 +1,5 @@
+
+
 /* Funcionalidad de Menú hamburguesa */
 const menuBurguer = document.getElementById('menu_burger');
 const menuBurguerClose = document.getElementById('menu_burger_close');
@@ -69,7 +71,7 @@ const createDom = (data, containerMain) =>{
     let iconMax = document.createElement('div');
     iconMax.classList.add('icon_max', 'tamaño_actions_users');
     iconMax.addEventListener('click', ()=>{
-        max();
+        max(data);
     });
     actionsUser.appendChild(iconMax);
 
@@ -100,9 +102,68 @@ const createDom = (data, containerMain) =>{
 
 /* Function max */
 let maxSection = document.getElementById('maxSection');
+let containerCarruselMax = document.querySelector('.container_gif_max_title_actions');
 let closeMaxGif = document.querySelector('.close_max_gif');
-const max = () =>{
+const max = (items) =>{
     maxSection.classList.remove('none');
+    //contenedor gifMax
+    containerCarruselMax.innerHTML='';
+    let divGifMax = document.createElement('div');
+    divGifMax.classList.add('gifMax');
+    //contenedor gifMax
+
+    //imgGifMax
+    let imgGifMax = document.createElement('div');
+    imgGifMax.classList.add('imgGifMax');
+    imgGifMax.style.backgroundImage = `url("${items.images.original.url}")`;
+    divGifMax.appendChild(imgGifMax);
+    //imgGifMax
+
+    //contenedor titulos y acciones
+    let containerTitleAndAction = document.createElement('div');
+    containerTitleAndAction.classList.add('container_title_max_actions_user');
+    //contenedor titulos y acciones
+
+    //contenedor de acciones
+    let actionsUser = document.createElement('div');
+    actionsUser.classList.add('actions_users_mobile');
+    //contenedor de acciones
+
+    //icono favorito
+    let iconFavMax = document.createElement('div');
+    iconFavMax.classList.add('icon_fav_max', 'tamaño_actions_users');
+    actionsUser.appendChild(iconFavMax);
+    //icono favorito
+
+    //icono descarga
+    let iconDownloadMax = document.createElement('div');
+    iconDownloadMax.classList.add('icon_download_max', 'tamaño_actions_users');
+    actionsUser.appendChild(iconDownloadMax);
+    //icono descarga
+
+    containerTitleAndAction.appendChild(actionsUser);
+
+    //contenedor titulos y usuario
+    let containerTitleAndUser = document.createElement('div');
+    containerTitleAndUser.classList.add('container_title_gifos_card_max');
+    //contenedor titulos y usuario
+
+    //usuario
+    let pGifosMax = document.createElement('p');
+    pGifosMax.classList.add('p_gifos_card_max');
+    pGifosMax.textContent = items.username;
+    containerTitleAndUser.appendChild(pGifosMax);
+    //usuario
+
+    //titulo del gif
+    let titleGifosMax = document.createElement('p');
+    titleGifosMax.classList.add('title_gifos_card_max');
+    titleGifosMax.textContent = items.title;
+    containerTitleAndUser.appendChild(titleGifosMax);
+    //titulo del gif
+    containerTitleAndAction.appendChild(containerTitleAndUser);
+    divGifMax.appendChild(containerTitleAndAction);
+    containerCarruselMax.appendChild(divGifMax);
 }
 closeMaxGif.addEventListener('click', ()=>{
     maxSection.classList.add('none');
@@ -129,3 +190,16 @@ const createDomTrending = (datos) =>{
 }
 trendingDom();
 /* API Trending */
+
+
+/* Carrusel max */
+const containerMax = document.querySelector('.container_gif_max_title_actions');
+const arrowLefMax = document.getElementById('arrow-lef-max');
+const arrowRightMax = document.getElementById('arrow-right-max');
+arrowRightMax.addEventListener('click', ()=>{
+    containerMax.scrollLeft -= containerMax.offsetWidth;
+});
+arrowLefMax.addEventListener('click', ()=>{
+    containerMax.scrollLeft += containerMax.offsetWidth;
+});
+/* Carrusel max */
