@@ -14,9 +14,7 @@
     height: 390px;
     border: 1px solid var(--text-color);
 }
-body.dark .cam_main{
-    border: 1px solid var(--bg-color);
-}
+
 h1{
     font-size: 15px;
     text-align: center;
@@ -35,9 +33,6 @@ P{
     color: var(--text-color-foot);
     text-align: center;
     line-height: 29px;
-}
-body.dark p{
-    color: var(--bg-color);
 }
 .container_num_pasos{
     position: relative;
@@ -59,10 +54,6 @@ body.dark p{
     background-color: var(--text-color);
     color: var(--bg-color);
 }
-body.dark .paso_paso{
-    border: solid 1px var(--bg-color);
-    color: var(--bg-color);
-}
 .line_big{
     position: relative;
     top: 100px;
@@ -70,9 +61,6 @@ body.dark .paso_paso{
     width: 250px;
     height: 7px;
     background-color: var(--text-color);
-}
-body.dark .line_big{
-    background-color: var(--text-color-foot);
 }
 .btn_start{
     position: relative;
@@ -95,14 +83,6 @@ body.dark .line_big{
 .btn_start:hover{
     background-color: var(--text-color);
     color: var(--bg-color);
-}
-body.dark .btn_start{
-    border: solid 1px var(--bg-color);
-    color: var(--bg-color);
-}
-body.dark .btn_start:hover{
-    background-color: var(--bg-color);
-    color: var(--text-color-foot);
 }
 strong{
     position: relative;

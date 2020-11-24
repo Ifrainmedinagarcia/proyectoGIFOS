@@ -105,6 +105,27 @@ body.dark .p_gifos_card_max{
 body.dark .title_gifos_card_max{
     color: white;
 }
+body.dark .btn_start{
+    border: solid 1px var(--bg-color);
+    color: var(--bg-color);
+}
+body.dark .btn_start:hover{
+    background-color: var(--bg-color);
+    color: var(--text-color-foot);
+}
+body.dark .line_big{
+    background-color: var(--text-color-foot);
+}
+body.dark .paso_paso{
+    border: solid 1px var(--bg-color);
+    color: var(--bg-color);
+}
+body.dark .cam_main{
+    border: 1px solid var(--bg-color);
+}
+body.dark p{
+    color: var(--bg-color);
+}
 @media screen and (min-width:1024px){
     body.dark .container_logo_header{
         background-image: url(../assets/Logo-modo-noc.svg);

@@ -334,6 +334,7 @@ input::placeholder{
     position: relative;
     left: 200px;
     top: 30px;
+    width: 90px;
     display:flex;
     height: 50px;
 }

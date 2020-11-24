@@ -1,5 +1,3 @@
-
-
 /* Funcionalidad de Menú hamburguesa */
 const menuBurguer = document.getElementById('menu_burger');
 const menuBurguerClose = document.getElementById('menu_burger_close');
@@ -18,7 +16,6 @@ menuBurguer.addEventListener('click', funcionalidadMenuOpen);
 menuBurguerClose.addEventListener('click', funcionalidadMenuClose);
 /* Funcionalidad de Menú hamburguesa */
 
-
 /* Carrusel trending */
 const fila = document.querySelector('.container_trending_gifos_flex');
 const arrowLef = document.getElementById('arrow-lef');
@@ -30,7 +27,6 @@ arrowLef.addEventListener('click', ()=>{
     fila.scrollLeft -= fila.offsetWidth;
 });
 /* Carrusel trending */
-
 
 /* Function create Dom */
 const createDom = (data, containerMain) =>{
@@ -209,7 +205,6 @@ const createDomTrending = (datos) =>{
 }
 trendingDom();
 /* API Trending */
-
 
 /* Carrusel max */
 const containerMax = document.querySelector('.container_gif_max_title_actions');
