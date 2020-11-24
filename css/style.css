@@ -296,29 +296,77 @@ input::placeholder{
     background-repeat: no-repeat;
     cursor: pointer;
 }
-
 .container_gif_max_title_actions{
     display: flex;
     position: relative;
     margin: auto;
-    top: 130px;
+    top: 250px;
     width: 90vw;
-    height: 200px;
-    align-self: flex-start;
-    justify-content: center;
+    height: 350px;
+    justify-content: start;
     scroll-behavior: smooth;
     overflow: scroll;
-    background-color: rgba(87, 46, 229, .5);
 }
 .gifMax{
-   
-    width: 243px;
-    height: 187px;
+    width: 100%;
     margin: 5px;
-    background-color: red;
+}
+.imgGifMax{
+    background-image: url(https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    position: relative;
+    margin: auto;
+    width: 318px;
+    height: 245px;
+}
+.icon_fav_max{
+    background-image: url(../assets/icon-fav-hover.svg);
+}
+.tamaño_actions_users{
+    width: 32px;
+    height: 32px;
+}
+.actions_users_mobile{
+    position: relative;
+    left: 200px;
+    top: 30px;
+    display:flex;
+    height: 50px;
+}
+.icon_download_max{
+    background-image: url(../assets/icon-download-hover.svg);
+    margin-left: 20px;
+}
+.container_title_gifos_card_max{
+    position: relative;
+    margin: auto;
+    bottom: 50px;
+}
+.container_title_max_actions_user{
+    position: relative;
+    margin: auto;
+    top: 5px;
+    height: 90px;
+    width: 318px;
+}
+.p_gifos_card_max{
+        
+    color: black;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    text-align: left;
+}
+.title_gifos_card_max{
+    text-align: left;
+    color: black;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
 }
 /* max_gif */
 /* Section - Tranding - GIFOS */
@@ -510,7 +558,7 @@ h3{
     .crea_tu_desktop{
         display: none;
     }
-  /* Main */
+    /* Main */
     main{
         position: relative;
         top: 60px;
@@ -550,55 +598,44 @@ h3{
     }
     /* Main */
     /* max_gif */
-    .actions_users_max{
-        bottom: 0px;
-    }
-    .close_max_gif{
-        right: 150px;
-    }
     .container_gif_max_title_actions{
-        height: 480px;
+        top: 150px;
+        width: 695px;
+        height:500px;
+        overflow: hidden;
     }
-    .max_gifos{
+    .gifMax{
+        width: 100%;
+        margin: 5px;
+    }
+    .imgGifMax{
+        width: 695px;
         height: 385px;
     }
-    .title_max_gif{
-        position: absolute;
-        bottom: -13px;
-        left: 0px;
-    }
-    h4{
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 15px;
-        text-align: center;
-        margin-bottom: -12px;
-    }
-    .p_gif_max{
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
-        text-align: center;
-    }
-    .button_slider_left{
-        position: absolute;
-        left: 200px;
-        width: 40px;
-        height: 40px;
-        top: 310px;
-        background-image: url(../assets/button-slider-left.svg);
+    .icon_fav_max{
+        background-image: url(../assets/icon-fav.svg);
         cursor: pointer;
     }
-    .button_slider_right{
-        position: absolute;
-        right: 200px;
-        width: 40px;
-        height: 40px;
-        background-image: url(../assets/Button-Slider-right.svg);
-        top: 310px;
+    .icon_fav_max:hover{
+        background-image: url(../assets/icon-fav-hover.svg);
+    }
+    .icon_download_max{
+        background-image: url(../assets/icon-download.svg);
         cursor: pointer;
+    }
+    .icon_download_max:hover{
+        background-image: url(../assets/icon-download-hover.svg);
+    }
+    .actions_users_mobile{
+        position: relative;
+        left: 550px;
+        top: 30px;
+        display:flex;
+        height: 50px;
+        z-index: 999999;
+    }
+    .container_title_max_actions_user{
+        width: 695px;
     }
     /* max_gif */
     /* trending_gifos */
@@ -694,16 +731,26 @@ h3{
         background-image: url(../assets/icon-max-hover.svg);
     }
     .trending_left{
+        background-image: url(../assets/button-slider-left.svg);
+        width: 40px;
+        height: 40px;
         display: block;
-        left: 50px;
+        position: absolute;
+        left: 40px;
+        top: 300px;
         transition: all .3s ease;
     }
     .trending_left:hover{
         background-image: url(../assets/button-slider-left-hover.svg);
     }
     .trending_right{
+        background-image: url(../assets/button-slider-right.svg);
+        width: 40px;
+        height: 40px;
         display: block;
-        right: 50px;
+        position: absolute;
+        right: 40px;
+        top: 300px;
         transition: all .3s ease;
     }
     .trending_right:hover{
