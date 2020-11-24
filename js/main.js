@@ -36,6 +36,11 @@ arrowLef.addEventListener('click', ()=>{
 const createDom = (data, containerMain) =>{
     let gifosTrending = document.createElement('div');
     gifosTrending.classList.add('gifos_trending');
+    gifosTrending.addEventListener('click', ()=>{
+        if(screen.width < 1024){
+            max(data);
+        }
+    });
     gifosTrending.style.backgroundImage = `url("${data.images.original.url}")`;
     let contador = 0;
 
@@ -105,6 +110,7 @@ let maxSection = document.getElementById('maxSection');
 let containerCarruselMax = document.querySelector('.container_gif_max_title_actions');
 let closeMaxGif = document.querySelector('.close_max_gif');
 const max = (items) =>{
+    let contador = 0;
     maxSection.classList.remove('none');
     //contenedor gifMax
     containerCarruselMax.innerHTML='';
@@ -132,6 +138,19 @@ const max = (items) =>{
     //icono favorito
     let iconFavMax = document.createElement('div');
     iconFavMax.classList.add('icon_fav_max', 'tamaño_actions_users');
+    iconFavMax.addEventListener('click', ()=>{
+        if (contador === 0) {
+            iconFavMax.classList.remove('icon_fav_max');
+            iconFavMax.classList.add('icon_fav_max_active');
+            //addToFavorite(data);
+            contador = 1;
+        }else{
+            iconFavMax.classList.add('icon_fav_max');
+            iconFavMax.classList.remove('icon_fav_max_active');
+            //removerGifToFavorite();
+            contador = 0;
+        }
+    });
     actionsUser.appendChild(iconFavMax);
     //icono favorito
 
