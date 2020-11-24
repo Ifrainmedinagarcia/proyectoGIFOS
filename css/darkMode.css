@@ -99,6 +99,12 @@ body.dark .p_gif_max{
 body.dark .close_max_gif{
     background-image: url(../assets/close-modo-noct.svg);
 }
+body.dark .p_gifos_card_max{    
+    color: white;
+}
+body.dark .title_gifos_card_max{
+    color: white;
+}
 @media screen and (min-width:1024px){
     body.dark .container_logo_header{
         background-image: url(../assets/Logo-modo-noc.svg);
@@ -112,10 +118,16 @@ body.dark .close_max_gif{
     body.dark nav{
         background-color: transparent;
     }
-    body.dark .button_slider_left{
+    body.dark .trending_left{
         background-image: url(../assets/button-slider-left-md-noct.svg);
     }
-    body.dark .button_slider_right{
+    body.dark .trending_right{
         background-image: url(..//assets/button-slider-right-md-noct.svg);
+    }
+    body.dark .trending_right_max{
+        background-image: url(../assets/button-slider-left-md-noct.svg);
+    }
+    body.dark .trending_left_max{
+        background-image: url(../assets/button-slider-right-md-noct.svg);
     }
 }
