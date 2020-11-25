@@ -5,6 +5,7 @@ let sectionSearch = document.getElementById('sectionSearch');
 let searchResult = document.getElementById('search_result');
 let showMore = document.querySelector('.showMore');
 let suggestions = document.getElementById('suggestions');
+
 const search = (title) =>{
     let urlSearch = `${baseApi}search?api_key=${apiSearch}&q=${title}&q=&limit=12`;
     let result = getIfoApi(urlSearch);
@@ -28,6 +29,7 @@ searchBtn.addEventListener('click', ()=>{
         alert('Por favor introduce un término de búsqueda');
     }
 });
+
 /* API Search */
 /* Buscador con sugerencia */
 /* const suggestionsDom = (sugerencia) =>{

@@ -28,6 +28,21 @@ arrowLef.addEventListener('click', ()=>{
 });
 /* Carrusel trending */
 
+/* Favoritos */
+const addToFavorite = (gifosAdd) =>{
+    let favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
+    let withoutRepeated = favoriteSection.filter(element => element.id === gifosAdd.id);
+    if(withoutRepeated.length <= 0){//no existe elementos
+        saveLocal(gifosAdd);
+    };
+};
+const saveLocal = (item) =>{
+    let favoritos = JSON.parse(localStorage.getItem('gif')) || [];
+    favoritos.push(item);
+    localStorage.setItem('gif', JSON.stringify(favoritos));
+}
+/* Favoritos */
+
 /* Function create Dom */
 const createDom = (data, containerMain) =>{
     let gifosTrending = document.createElement('div');
@@ -51,7 +66,7 @@ const createDom = (data, containerMain) =>{
         if (contador === 0) {
             iconFav.classList.remove('icon_fav');
             iconFav.classList.add('icon_fav_remove');
-            //addToFavorite(data);
+            addToFavorite(data);
             contador = 1;
         }else{
             iconFav.classList.add('icon_fav');

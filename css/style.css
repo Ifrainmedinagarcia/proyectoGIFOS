@@ -692,17 +692,17 @@ h3{
         width: 330px;
         height: 275px;
     }
+    .container_title_gifos_card{
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+    }
     .info_gif{
         position: relative;
         width: 357px;
         height: 275px;
         background-color:rgba(87, 46, 229, .5);
         opacity: 0;
-    }
-    .container_title_gifos_card{
-        position: absolute;
-        bottom: 30px;
-        left: 30px;
     }
     .info_gif:hover{
         opacity: 1;
