@@ -30,17 +30,17 @@ arrowLef.addEventListener('click', ()=>{
 
 /* Favoritos */
 const addToFavorite = (gifosAdd) =>{
-    let favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
-    let withoutRepeated = favoriteSection.filter(element => element.id === gifosAdd.id);
-    if(withoutRepeated.length <= 0){//no existe elementos
-        saveLocal(gifosAdd);
-    };
-};
-const saveLocal = (item) =>{
-    let favoritos = JSON.parse(localStorage.getItem('gif')) || [];
-    favoritos.push(item);
-    localStorage.setItem('gif', JSON.stringify(favoritos));
+    const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
+    favoriteSection.push(gifosAdd);
+    localStorage.setItem('gif', JSON.stringify(favoriteSection));
+    createDomFavorite();
 }
+const removerGifToFavorite =() =>{
+
+};
+/* const saveLoca = () =>{
+
+} */
 /* Favoritos */
 
 /* Function create Dom */
@@ -71,7 +71,7 @@ const createDom = (data, containerMain) =>{
         }else{
             iconFav.classList.add('icon_fav');
             iconFav.classList.remove('icon_fav_remove');
-            //removerGifToFavorite();
+            removerGifToFavorite(gifosTrending, containerMain);
             contador = 0;
         }
     });
