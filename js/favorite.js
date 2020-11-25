@@ -2,14 +2,14 @@
 let gifosContainerFlex = document.getElementById('gifosContainerFlex');
 let favoriteClean = document.getElementById('favoriteClean');
 
-
 const createDomFavorite = () =>{
     let gifLocal = JSON.parse(localStorage.getItem('gif')) || [];
-    if(gifLocal.length > 0){
+    if(gifLocal.length <=0){
+        gifLocal.classList.remove('none');
+    }else{
         favoriteClean.classList.add('none');
         gifosContainerFlex.innerHTML = '';
-
-        gifLocal.forEach(elemento = (elemento)=>{
+        gifLocal.forEach((elemento, index) =>{
             let gifosTrending = document.createElement('div');
             gifosTrending.classList.add('gifos_trending');
             gifosTrending.addEventListener('click', ()=>{
@@ -27,7 +27,7 @@ const createDomFavorite = () =>{
             let iconFav = document.createElement('div');
             iconFav.classList.add('icon_fav_remove', 'tamaño_actions_users');
             iconFav.addEventListener('click', () =>{
-                removerGifToFavorite();
+                removerGifToFavorite(gifosContainerFlex, gifosTrending, index);
             });
             actionsUser.appendChild(iconFav);
 
@@ -45,7 +45,6 @@ const createDomFavorite = () =>{
             });
             actionsUser.appendChild(iconMax);
 
-
             let titleCardContainer = document.createElement('div');
             titleCardContainer.classList.add('container_title_gifos_card');
 
@@ -61,18 +60,14 @@ const createDomFavorite = () =>{
 
             titleCardContainer.appendChild(titleGifosCard);
 
-
             infoGif.appendChild(actionsUser);
             infoGif.appendChild (titleCardContainer);
 
             gifosTrending.appendChild(infoGif);
             gifosContainerFlex.appendChild(gifosTrending);
         });
-    };
+    }
 }
-
 createDomFavorite();
 
 /* Add to favorite */
-
-

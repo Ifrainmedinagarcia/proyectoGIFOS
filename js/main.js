@@ -35,12 +35,13 @@ const addToFavorite = (gifosAdd) =>{
     localStorage.setItem('gif', JSON.stringify(favoriteSection));
     createDomFavorite();
 }
-const removerGifToFavorite =() =>{
-
+const removerGifToFavorite =(gifosContainerFlex, gifosTrending, index) =>{
+    const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
+    gifosContainerFlex.removeChild(gifosTrending);
+    favoriteSection.splice(index, 1);
+    localStorage.setItem('gif', JSON.stringify(favoriteSection));
+    createDomFavorite();
 };
-/* const saveLoca = () =>{
-
-} */
 /* Favoritos */
 
 /* Function create Dom */
@@ -71,7 +72,7 @@ const createDom = (data, containerMain) =>{
         }else{
             iconFav.classList.add('icon_fav');
             iconFav.classList.remove('icon_fav_remove');
-            removerGifToFavorite(gifosTrending, containerMain);
+            //removerGifToFavorite();
             contador = 0;
         }
     });
