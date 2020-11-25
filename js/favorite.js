@@ -5,7 +5,7 @@ let favoriteClean = document.getElementById('favoriteClean');
 const createDomFavorite = () =>{
     let gifLocal = JSON.parse(localStorage.getItem('gif')) || [];
     if(gifLocal.length <=0){
-        gifLocal.classList.remove('none');
+        favoriteClean.classList.remove('none');
     }else{
         favoriteClean.classList.add('none');
         gifosContainerFlex.innerHTML = '';

@@ -30,6 +30,12 @@ searchBtn.addEventListener('click', ()=>{
     }
 });
 
+searchValue.addEventListener('keyup', () => {
+    if (event.which === 13 || event.keyCode == 13) {
+        search(searchValue.value);
+    }
+});
+
 /* API Search */
 /* Buscador con sugerencia */
 /* const suggestionsDom = (sugerencia) =>{
@@ -44,6 +50,4 @@ searchBtn.addEventListener('click', ()=>{
     divContainerPSug.appendChild(pSugerencia);
     divSegerenciaContainer.appendChild(divContainerPSug);
 } */
-
 /* Buscador con sugerencia */
-
