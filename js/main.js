@@ -78,14 +78,14 @@ const createDom = (data, containerMain) =>{
     });
     actionsUser.appendChild(iconFav);
 
-    let iconDownload = document.createElement('div');
+    const iconDownload = document.createElement('div');
     iconDownload.classList.add('icon_download', 'tamaño_actions_users');
         iconDownload.addEventListener('click', () =>{
             //download(data);
         });
     actionsUser.appendChild(iconDownload);
 
-    let iconMax = document.createElement('div');
+    const iconMax = document.createElement('div');
     iconMax.classList.add('icon_max', 'tamaño_actions_users');
     iconMax.addEventListener('click', ()=>{
         max(data);
@@ -93,16 +93,16 @@ const createDom = (data, containerMain) =>{
     actionsUser.appendChild(iconMax);
 
 
-    let titleCardContainer = document.createElement('div');
+    const titleCardContainer = document.createElement('div');
     titleCardContainer.classList.add('container_title_gifos_card');
 
-    let pGifosUser = document.createElement('p');
+    const pGifosUser = document.createElement('p');
     pGifosUser.classList.add('p_gifos_card');
     pGifosUser.textContent = data.username;
     
     titleCardContainer.appendChild(pGifosUser);
 
-    let titleGifosCard = document.createElement('p');
+    const titleGifosCard = document.createElement('p');
     titleGifosCard.classList.add('title_gifos_card');
     titleGifosCard.textContent = data.title;
 
@@ -125,37 +125,37 @@ const createDom = (data, containerMain) =>{
 /* Function download */
 
 /* Function max */
-let maxSection = document.getElementById('maxSection');
-let containerCarruselMax = document.querySelector('.container_gif_max_title_actions');
-let closeMaxGif = document.querySelector('.close_max_gif');
+const maxSection = document.getElementById('maxSection');
+const containerCarruselMax = document.querySelector('.container_gif_max_title_actions');
+const closeMaxGif = document.querySelector('.close_max_gif');
 const max = (items) =>{
-    let contador = 0;
+    const contador = 0;
     maxSection.classList.remove('none');
     //contenedor gifMax
     containerCarruselMax.innerHTML='';
-    let divGifMax = document.createElement('div');
+    const divGifMax = document.createElement('div');
     divGifMax.classList.add('gifMax');
     //contenedor gifMax
 
     //imgGifMax
-    let imgGifMax = document.createElement('div');
+    const imgGifMax = document.createElement('div');
     imgGifMax.classList.add('imgGifMax');
     imgGifMax.style.backgroundImage = `url("${items.images.original.url}")`;
     divGifMax.appendChild(imgGifMax);
     //imgGifMax
 
     //contenedor titulos y acciones
-    let containerTitleAndAction = document.createElement('div');
+    const containerTitleAndAction = document.createElement('div');
     containerTitleAndAction.classList.add('container_title_max_actions_user');
     //contenedor titulos y acciones
 
     //contenedor de acciones
-    let actionsUser = document.createElement('div');
+    const actionsUser = document.createElement('div');
     actionsUser.classList.add('actions_users_mobile');
     //contenedor de acciones
 
     //icono favorito
-    let iconFavMax = document.createElement('div');
+    const iconFavMax = document.createElement('div');
     iconFavMax.classList.add('icon_fav_max', 'tamaño_actions_users');
     iconFavMax.addEventListener('click', ()=>{
         if (contador === 0) {
@@ -174,7 +174,7 @@ const max = (items) =>{
     //icono favorito
 
     //icono descarga
-    let iconDownloadMax = document.createElement('div');
+    const iconDownloadMax = document.createElement('div');
     iconDownloadMax.classList.add('icon_download_max', 'tamaño_actions_users');
     actionsUser.appendChild(iconDownloadMax);
     //icono descarga
@@ -182,19 +182,19 @@ const max = (items) =>{
     containerTitleAndAction.appendChild(actionsUser);
 
     //contenedor titulos y usuario
-    let containerTitleAndUser = document.createElement('div');
+    const containerTitleAndUser = document.createElement('div');
     containerTitleAndUser.classList.add('container_title_gifos_card_max');
     //contenedor titulos y usuario
 
     //usuario
-    let pGifosMax = document.createElement('p');
+    const pGifosMax = document.createElement('p');
     pGifosMax.classList.add('p_gifos_card_max');
     pGifosMax.textContent = items.username;
     containerTitleAndUser.appendChild(pGifosMax);
     //usuario
 
     //titulo del gif
-    let titleGifosMax = document.createElement('p');
+    const titleGifosMax = document.createElement('p');
     titleGifosMax.classList.add('title_gifos_card_max');
     titleGifosMax.textContent = items.title;
     containerTitleAndUser.appendChild(titleGifosMax);

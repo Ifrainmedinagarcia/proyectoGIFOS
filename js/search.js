@@ -1,14 +1,14 @@
 /* API Search */
-let searchValue = document.getElementById('search_value');
-let searchBtn = document.getElementById('btn_search');
-let sectionSearch = document.getElementById('sectionSearch');
-let searchResult = document.getElementById('search_result');
-let showMore = document.querySelector('.showMore');
-let suggestions = document.getElementById('suggestions');
+const searchValue = document.getElementById('search_value');
+const searchBtn = document.getElementById('btn_search');
+const sectionSearch = document.getElementById('sectionSearch');
+const searchResult = document.getElementById('search_result');
+const showMore = document.querySelector('.showMore');
+const suggestions = document.getElementById('suggestions');
 
 const search = (title) =>{
-    let urlSearch = `${baseApi}search?api_key=${apiSearch}&q=${title}&q=&limit=12`;
-    let result = getIfoApi(urlSearch);
+    const urlSearch = `${baseApi}search?api_key=${apiSearch}&q=${title}&q=&limit=12`;
+    const result = getIfoApi(urlSearch);
     searchResult.innerHTML = '';
     result.then((resp)=>{
         resp.data.map(items => domSearch(items));
@@ -17,7 +17,7 @@ const search = (title) =>{
     });
 }
 const domSearch = (gifSearch) =>{
-    let h1Title = document.getElementById('title');
+    const h1Title = document.getElementById('title');
     h1Title.textContent = searchValue.value;
     createDom(gifSearch, searchResult);
 }
