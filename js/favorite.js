@@ -69,5 +69,4 @@ const createDomFavorite = () =>{
     }
 }
 createDomFavorite();
-
 /* Add to favorite */

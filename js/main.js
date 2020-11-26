@@ -81,7 +81,7 @@ const createDom = (data, containerMain) =>{
     let iconDownload = document.createElement('div');
     iconDownload.classList.add('icon_download', 'tamaño_actions_users');
         iconDownload.addEventListener('click', () =>{
-            download(data);
+            //download(data);
         });
     actionsUser.appendChild(iconDownload);
 
@@ -118,11 +118,11 @@ const createDom = (data, containerMain) =>{
 /* Function create Dom */
 
 /* Function download */
-const download = (datosForDownload) =>{
-
-}
+/* const download = (itemsDownload) =>{
+    let descarga = itemsDownload;
+    console.log(descarga);
+} */
 /* Function download */
-
 
 /* Function max */
 let maxSection = document.getElementById('maxSection');

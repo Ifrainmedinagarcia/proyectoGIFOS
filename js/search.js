@@ -29,13 +29,16 @@ searchBtn.addEventListener('click', ()=>{
         alert('Por favor introduce un término de búsqueda');
     }
 });
-
 searchValue.addEventListener('keyup', () => {
     if (event.which === 13 || event.keyCode == 13) {
-        search(searchValue.value);
+        if (searchValue.value != '') {
+            search(searchValue.value);
+            showMore.classList.remove('none');   
+        }else{
+            alert('Por favor introduce un término de búsqueda');
+        }
     }
 });
-
 /* API Search */
 /* Buscador con sugerencia */
 /* const suggestionsDom = (sugerencia) =>{
@@ -49,5 +52,6 @@ searchValue.addEventListener('keyup', () => {
 
     divContainerPSug.appendChild(pSugerencia);
     divSegerenciaContainer.appendChild(divContainerPSug);
-} */
+};
+suggestionsDom(); */
 /* Buscador con sugerencia */
