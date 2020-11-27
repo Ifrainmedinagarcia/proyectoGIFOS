@@ -36,9 +36,9 @@ const createDomFavorite = () => {
 
             const iconDownload = document.createElement('div');
             iconDownload.classList.add('icon_download', 'tamaño_actions_users');
-            /*  iconDownload.addEventListener('click', () =>{
-                iconDownload(data);
-            }); */
+            iconDownload.addEventListener('click', () =>{
+                download(data.images.original.url, data.username);
+            });
             actionsUser.appendChild(iconDownload);
 
             const iconMax = document.createElement('div');

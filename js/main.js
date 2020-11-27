@@ -35,7 +35,7 @@ const addToFavorite = (gifosAdd) =>{
     localStorage.setItem('gif', JSON.stringify(favoriteSection));
     createDomFavorite();
 }
-const removerGifToFavorite =(gifosContainerFlex, gifosTrending, index) =>{
+const removerGifToFavorite = (gifosContainerFlex, gifosTrending, index) =>{
     const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
     gifosContainerFlex.removeChild(gifosTrending);
     favoriteSection.splice(index, 1);
@@ -45,7 +45,7 @@ const removerGifToFavorite =(gifosContainerFlex, gifosTrending, index) =>{
 /* Favoritos */
 
 /* Function create Dom */
-const createDom = (data, containerMain) =>{
+const createDom = (data, containerMain, index) =>{
     let gifosTrending = document.createElement('div');
     gifosTrending.classList.add('gifos_trending');
     gifosTrending.addEventListener('click', ()=>{
@@ -54,7 +54,6 @@ const createDom = (data, containerMain) =>{
         };
     });
     gifosTrending.style.backgroundImage = `url("${data.images.original.url}")`;
-    let contador = 0;
 
     let infoGif = document.createElement('div');
     infoGif.classList.add('info_gif');
@@ -63,17 +62,27 @@ const createDom = (data, containerMain) =>{
     actionsUser.classList.add('actions_users');
     let iconFav = document.createElement('div');
     iconFav.classList.add('icon_fav', 'tamaño_actions_users');
+    const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
+    favoriteSection.forEach(elemento =>{
+        if (data.id === elemento.id) {
+            iconFav.classList.remove('icon_fav');
+            iconFav.classList.add('icon_fav_remove');
+        }else{
+            iconFav.classList.add('icon_fav', 'tamaño_actions_users');
+        }
+    });
     iconFav.addEventListener('click', () =>{
-        if (contador === 0) {
+        if (iconFav.classList.contains('icon_fav')) {
             iconFav.classList.remove('icon_fav');
             iconFav.classList.add('icon_fav_remove');
             addToFavorite(data);
-            contador = 1;
         }else{
             iconFav.classList.add('icon_fav');
             iconFav.classList.remove('icon_fav_remove');
-            //removerGifToFavorite();
-            contador = 0;
+            const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
+            favoriteSection.splice(index, 1);
+            localStorage.setItem('gif', JSON.stringify(favoriteSection));
+            createDomFavorite();
         }
     });
     actionsUser.appendChild(iconFav);
@@ -81,7 +90,7 @@ const createDom = (data, containerMain) =>{
     const iconDownload = document.createElement('div');
     iconDownload.classList.add('icon_download', 'tamaño_actions_users');
         iconDownload.addEventListener('click', () =>{
-            download(data.images.original.url);
+            download(data.images.original.url, data.username);
         });
     actionsUser.appendChild(iconDownload);
 
@@ -117,19 +126,12 @@ const createDom = (data, containerMain) =>{
 }
 /* Function create Dom */
 
-/* Function download */
-/* const download = (itemsDownload) =>{
-    let descarga = itemsDownload;
-    console.log(descarga);
-} */
-/* Function download */
-
 /* Function max */
 const maxSection = document.getElementById('maxSection');
 const containerCarruselMax = document.querySelector('.container_gif_max_title_actions');
 const closeMaxGif = document.querySelector('.close_max_gif');
 const max = (items) =>{
-    const contador = 0;
+    let contador = 0;
     maxSection.classList.remove('none');
     //contenedor gifMax
     containerCarruselMax.innerHTML='';
@@ -157,6 +159,7 @@ const max = (items) =>{
     //icono favorito
     const iconFavMax = document.createElement('div');
     iconFavMax.classList.add('icon_fav_max', 'tamaño_actions_users');
+    
     iconFavMax.addEventListener('click', ()=>{
         if (contador === 0) {
             iconFavMax.classList.remove('icon_fav_max');
@@ -166,7 +169,9 @@ const max = (items) =>{
         }else{
             iconFavMax.classList.add('icon_fav_max');
             iconFavMax.classList.remove('icon_fav_max_active');
-            //removerGifToFavorite();
+            const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
+            favoriteSection.splice(index, 1);
+            localStorage.setItem('gif', JSON.stringify(favoriteSection));
             contador = 0;
         }
     });
@@ -176,6 +181,9 @@ const max = (items) =>{
     //icono descarga
     const iconDownloadMax = document.createElement('div');
     iconDownloadMax.classList.add('icon_download_max', 'tamaño_actions_users');
+    iconDownloadMax.addEventListener('click', () =>{
+        download(items.images.original.url);
+    });
     actionsUser.appendChild(iconDownloadMax);
     //icono descarga
 
@@ -213,14 +221,14 @@ const trendingDom = () =>{
     let url = `${baseApi}trending?api_key=${apiSearch}&limit=25&rating=g`;
     let result = getIfoApi(url);
     result.then((resp)=>{
-        resp.data.map(item => createDomTrending(item));
+        resp.data.map((item, i) => createDomTrending(item, i));
     }).catch((e) => {
         alert("a ocurrido un error" + e);
     });
 };
-const createDomTrending = (datos) =>{
+const createDomTrending = (datos, i) =>{
     let containerTrending = document.getElementById('containerTrending');
-    createDom(datos, containerTrending);
+    createDom(datos, containerTrending, i);
 }
 trendingDom();
 /* API Trending */
@@ -237,8 +245,7 @@ arrowLefMax.addEventListener('click', ()=>{
 });
 /* Carrusel max */
 
-
-
+//Download
 const toDataURL = (url) => {
     return fetch(url).then((response) => {
         return response.blob();
@@ -246,12 +253,12 @@ const toDataURL = (url) => {
         return URL.createObjectURL(blob);
     });
 }
-
-const download =  async (gifDownload) => {
+const download =  async (gifDownload, name) => {
         const a = document.createElement("a");
         a.href = await toDataURL(gifDownload);
-        a.download = "myImage.gif";
+        a.download = name;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
 }
+//Download

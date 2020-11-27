@@ -11,15 +11,15 @@ const search = (title) =>{
     const result = getIfoApi(urlSearch);
     searchResult.innerHTML = '';
     result.then((resp)=>{
-        resp.data.map(items => domSearch(items));
+        resp.data.map((items, i) => domSearch(items, i));
     }).catch((e) => {
         console.log("a ocurrido un error " + e);
     });
 }
-const domSearch = (gifSearch) =>{
+const domSearch = (gifSearch, i) =>{
     const h1Title = document.getElementById('title');
     h1Title.textContent = searchValue.value;
-    createDom(gifSearch, searchResult);
+    createDom(gifSearch, searchResult, i);
 }
 searchBtn.addEventListener('click', ()=>{
     if (searchValue.value != '') {
@@ -40,6 +40,8 @@ searchValue.addEventListener('keyup', () => {
     }
 });
 /* API Search */
+
+
 /* Buscador con sugerencia */
 /* const suggestionsDom = (sugerencia) =>{
     let divSegerenciaContainer = document.createElement('div');
