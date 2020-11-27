@@ -501,7 +501,7 @@ h3{
         width: 68px;
         height: 68px;
         top: 25px;
-        z-index: 9999;
+        z-index: 999999999;
     }
     .container_logo_header{
         position: absolute;

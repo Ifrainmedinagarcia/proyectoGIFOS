@@ -236,3 +236,23 @@ arrowLefMax.addEventListener('click', ()=>{
     containerMax.scrollLeft += containerMax.offsetWidth;
 });
 /* Carrusel max */
+
+
+
+/* 
+const toDataURL = (url) => {
+    return fetch(url).then((response) => {
+            return response.blob();
+        }).then(blob => {
+            return URL.createObjectURL(blob);
+        });
+}
+
+ const download =  async () => {
+        const a = document.createElement("a");
+        a.href = await toDataURL("https://media0.giphy.com/media/l0MYy2GInHvLon2jS/giphy.gif?cid=009a9293dmpc3ridjqzhe7a0axwi9u4ufsumhoxnk7d3plk4&rid=giphy.gif ");
+        a.download = "myImage.gif";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+} */
