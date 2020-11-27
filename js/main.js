@@ -81,7 +81,7 @@ const createDom = (data, containerMain) =>{
     const iconDownload = document.createElement('div');
     iconDownload.classList.add('icon_download', 'tamaño_actions_users');
         iconDownload.addEventListener('click', () =>{
-            //download(data);
+            download(data.images.original.url);
         });
     actionsUser.appendChild(iconDownload);
 
@@ -239,20 +239,19 @@ arrowLefMax.addEventListener('click', ()=>{
 
 
 
-/* 
 const toDataURL = (url) => {
     return fetch(url).then((response) => {
-            return response.blob();
-        }).then(blob => {
-            return URL.createObjectURL(blob);
-        });
+        return response.blob();
+    }).then(blob => {
+        return URL.createObjectURL(blob);
+    });
 }
 
- const download =  async () => {
+const download =  async (gifDownload) => {
         const a = document.createElement("a");
-        a.href = await toDataURL("https://media0.giphy.com/media/l0MYy2GInHvLon2jS/giphy.gif?cid=009a9293dmpc3ridjqzhe7a0axwi9u4ufsumhoxnk7d3plk4&rid=giphy.gif ");
+        a.href = await toDataURL(gifDownload);
         a.download = "myImage.gif";
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
-} */
+}
