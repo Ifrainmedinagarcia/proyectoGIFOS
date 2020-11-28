@@ -126,6 +126,9 @@ body.dark .cam_main{
 body.dark p{
     color: var(--bg-color);
 }
+body.dark input{
+    color: white;
+}
 @media screen and (min-width:1024px){
     body.dark .container_logo_header{
         background-image: url(../assets/Logo-modo-noc.svg);
