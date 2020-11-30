@@ -72,7 +72,7 @@ nav{
     height: 100vh;
     background-color: var(--text-color);
     opacity: 90%;
-    z-index: 9999;
+    z-index: 400;
 }
 ul{
     position: relative;
@@ -142,7 +142,7 @@ span{
     border-radius: 27px;
     background-color: white;
     border: solid 1px #572EE5;
-    z-index: 5555;
+    z-index: 200;
 }
 input{
     position: relative;
@@ -288,7 +288,7 @@ input::placeholder{
     height: 100%;
     top: 0;
     background-color: rgba(255, 255, 255, 1);
-    z-index: 99999;
+    z-index: 999;
 }
 .close_max_gif{
     position: absolute;
@@ -433,7 +433,6 @@ input::placeholder{
     height: 187px;
     background-color:rgba(87, 46, 229, .5);
     opacity: 0;
-    z-index: 9999;
 }
 /* Section - Tranding - GIFOS */
 /* Footer */
@@ -506,7 +505,7 @@ h3{
         width: 68px;
         height: 68px;
         top: 25px;
-        z-index: 999999999;
+        z-index: 900;
     }
     .container_logo_header{
         position: absolute;
@@ -525,7 +524,7 @@ h3{
         width: 54px;
         height: 54px;
         top:25px;
-        z-index: 9999;
+        z-index: 950;
         transition: all .3s ease;
     }
     .createGif:hover{
@@ -642,7 +641,7 @@ h3{
         top: 30px;
         display:flex;
         height: 50px;
-        z-index: 999999;
+        z-index: 999;
     }
     .container_title_max_actions_user{
         width: 695px;

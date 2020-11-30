@@ -12,6 +12,7 @@ const search = (title) =>{
     const urlSearch = `${baseApi}search?api_key=${apiSearch}&q=${title}&q=&limit=12`;
     const result = getIfoApi(urlSearch);
     searchResult.innerHTML = '';
+    suggestionsContainer.innerHTML = '';
     result.then((resp)=>{
         resp.data.map((items, i) => domSearch(items, i));
     }).catch((e) => {
@@ -27,8 +28,7 @@ searchBtn.addEventListener('click', ()=>{
     if (searchValue.value != '') {
         search(searchValue.value);
         showMore.classList.remove('none');
-        xCancelSearch.classList.remove('none');
-        searchBtn.classList.add('none');
+        lineSuggestions.classList.add('none');
     }else{
         alert('Por favor introduce un término de búsqueda');
     }
@@ -38,15 +38,14 @@ searchValue.addEventListener('keyup', () => {
         if (searchValue.value != '') {
             search(searchValue.value);
             showMore.classList.remove('none');
-            xCancelSearch.classList.remove('none');
-            searchBtn.classList.add('none');
+            lineSuggestions.classList.add('none');
+            
         }else{
             alert('Por favor introduce un término de búsqueda');
         }
     }
 });
 /* API Search */
-
 
 /* Buscador con sugerencia */
 
@@ -81,7 +80,10 @@ const suggestionsDom = (sugerencia) =>{
 
     divContainerPSug.appendChild(pSugerencia);
     divContainerPSug.addEventListener('click', () =>{
-        search(pSugerencia);
+        search(sugerencia.title);
+        lineSuggestions.classList.add('none');
+        showMore.classList.remove('none');
+        suggestionsContainer.innerHTML = '';
     });
     suggestionsContainer.appendChild(divContainerPSug);
 };
@@ -91,9 +93,9 @@ searchValue.addEventListener('keyup', ()=>{
     if (searchValue.value !== '') {
         lineSuggestions.classList.remove('none');
     }else{
-        xSancelSearch.classList.add('none');
+        xCancelSearch.classList.add('none');
     }
 } );
 
-filtrar();
+
 /* Buscador con sugerencia */
