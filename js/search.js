@@ -1,4 +1,4 @@
-/* API Search */
+
 const searchValue = document.getElementById('search_value');
 const searchBtn = document.getElementById('btn_search');
 const sectionSearch = document.getElementById('sectionSearch');
@@ -10,6 +10,7 @@ const xCancelSearch = document.querySelector('.x_cancel_search');
 const h1Title = document.getElementById('title');
 const lupa = document.querySelector('.fa-search');
 
+/* API Search */
 const search = (title) =>{
     const urlSearch = `${baseApi}search?api_key=${apiSearch}&q=${title}&q=&limit=12`;
     const result = getIfoApi(urlSearch);
@@ -116,7 +117,18 @@ searchValue.addEventListener('keyup', ()=>{
 /* Buscador con sugerencia */
 
 /* Show More */
-/* showMore.addEventListener('click', () =>{
-    search(h1Title.textContent);
-}); */
+const showMoreFunction = (title) =>{
+    const urlSearch = `${baseApi}search?api_key=${apiSearch}&q=${title}&q=&limit=12`;
+    const result = getIfoApi(urlSearch);
+    result.then((resp)=>{
+        resp.data.map((items, i) => domSearch(items, i));
+    }).catch((e) => {
+        console.log("a ocurrido un error " + e);
+    });
+}
+showMore.addEventListener('click', () =>{
+    showMoreFunction(h1Title.textContent);
+    
+
+});
 /* Show More */

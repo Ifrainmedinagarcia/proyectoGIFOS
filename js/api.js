@@ -1,6 +1,6 @@
 const apiSearch = 'pEo6WXMy7qnbv6QjNIWmRF2ghCLUvM4L';
 const baseApi = 'https://api.giphy.com/v1/gifs/';
-const seggestionsApi = 'https://api.giphy.com/v1/tags'; 
+
 
 /*Get Info Api */
 const getIfoApi = async (url) => {
