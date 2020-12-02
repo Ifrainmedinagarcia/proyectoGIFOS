@@ -10,8 +10,9 @@ const xCancelSearch = document.querySelector('.x_cancel_search');
 const h1Title = document.getElementById('title');
 const lupa = document.querySelector('.fa-search');
 
+
 /* API Search */
-const search = (title) =>{
+const search = (title, pagination) =>{
     const urlSearch = `${baseApi}search?api_key=${apiSearch}&q=${title}&q=&limit=12`;
     const result = getIfoApi(urlSearch);
     searchResult.innerHTML = '';
@@ -27,7 +28,7 @@ const domSearch = (gifSearch, i) =>{
 }
 lupa.addEventListener('click', ()=>{
     if (searchValue.value != '') {
-        search(searchValue.value);
+        search(searchValue.value, pagination);
         lineSuggestions.classList.add('none');
         showMore.classList.remove('none');
         suggestionsContainer.innerHTML = '';
@@ -40,7 +41,7 @@ searchValue.addEventListener('keyup', () => {
         if (searchValue.value != '') {
             search(searchValue.value);
             showMore.classList.remove('none');
-            lineSuggestions.innerHTML = '';
+            lineSuggestions.classList.remove('none');
         }else{
             alert('Por favor introduce un término de búsqueda');
         }
@@ -50,15 +51,12 @@ searchValue.addEventListener('keyup', () => {
 
 /* Buscador con sugerencia */
 const suggestions = (title) =>{
-    const urlSuggestion = `${baseApi}search?api_key=${apiSearch}&q=${title}&q=&limit=8`;
+    const urlSuggestion = `${baseApi}search/tags?api_key=${apiSearch}&q=${title}=&limit=5`;
     const result = getIfoApi(urlSuggestion);
     suggestionsContainer.innerHTML = '';
     result.then((resp)=>{
         resp.data.map(elementoSuggestions => {
-            let nombre = elementoSuggestions.title;
-            if (nombre.indexOf(title) !== -1) {
-                suggestionsDom(elementoSuggestions);
-            }
+            suggestionsDom(elementoSuggestions.name);
         });
     }).catch((e) => {
         console.log("a ocurrido un error " + e);
@@ -77,15 +75,15 @@ const suggestionsDom = (sugerencia) =>{
     
     const pSugerencia = document.createElement('p');
     pSugerencia.classList.add('sugerenciaP');
-    pSugerencia.textContent = sugerencia.title;
+    pSugerencia.textContent = sugerencia;
     pSugerencia.appendChild(lupa);
 
 
     divContainerPSug.appendChild(pSugerencia);
     divContainerPSug.addEventListener('click', () =>{
-        search(sugerencia.title);
-        h1Title.textContent = sugerencia.title;
-        searchValue.value = sugerencia.title;
+        search(sugerencia);
+        h1Title.textContent = sugerencia;
+        searchValue.value = sugerencia;
         lineSuggestions.classList.add('none');
         showMore.classList.remove('none');
         suggestionsContainer.innerHTML = '';
@@ -117,8 +115,8 @@ searchValue.addEventListener('keyup', ()=>{
 /* Buscador con sugerencia */
 
 /* Show More */
-const showMoreFunction = (title) =>{
-    const urlSearch = `${baseApi}search?api_key=${apiSearch}&q=${title}&q=&limit=12`;
+const showMoreFunction = (title, pagination) =>{
+    const urlSearch = `${baseApi}search?api_key=${apiSearch}&q=${title}&q=&limit=12&offset=${pagination}`;
     const result = getIfoApi(urlSearch);
     result.then((resp)=>{
         resp.data.map((items, i) => domSearch(items, i));
@@ -126,9 +124,10 @@ const showMoreFunction = (title) =>{
         console.log("a ocurrido un error " + e);
     });
 }
+let pagination = 12;
 showMore.addEventListener('click', () =>{
-    showMoreFunction(h1Title.textContent);
-    
-
+    pagination = pagination + 12;
+    console.log(pagination);
+    showMoreFunction(h1Title.textContent, pagination);
 });
 /* Show More */
