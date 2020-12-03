@@ -15,7 +15,8 @@ const createDomFavorite = () => {
         favoriteClean.classList.add('none');
         gifosContainerFlex.innerHTML = '';
         gifLocal.forEach((elemento, index) => {
-            const gifosTrending = document.createElement('div');
+            createDom(elemento, gifosContainerFlex, index);
+            /*  const gifosTrending = document.createElement('div');
             gifosTrending.classList.add('gifos_trending');
             gifosTrending.addEventListener('click', ()=>{
                 if( screen.width < 1024) {
@@ -69,7 +70,7 @@ const createDomFavorite = () => {
             infoGif.appendChild (titleCardContainer);
 
             gifosTrending.appendChild(infoGif);
-            gifosContainerFlex.appendChild(gifosTrending);
+            gifosContainerFlex.appendChild(gifosTrending); */
         });
     };
 }

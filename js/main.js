@@ -1,5 +1,4 @@
 'use strict'
-
 /* Funcionalidad de Menú hamburguesa */
 const menuBurguer = document.getElementById('menu_burger');
 const menuBurguerClose = document.getElementById('menu_burger_close');
@@ -37,7 +36,6 @@ const addToFavorite = (gifosAdd) =>{
     localStorage.setItem('gif', JSON.stringify(favoriteSection));
     createDomFavorite();
 }
-
 const removerGifToFavoriteTrendin = (gifoID) => {
     const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
     let favoriteIndex;
@@ -49,7 +47,6 @@ const removerGifToFavoriteTrendin = (gifoID) => {
     favoriteSection.splice(favoriteIndex, 1);
     localStorage.setItem('gif', JSON.stringify(favoriteSection));
 };
-
 const removerGifToFavorite = (gifosContainerFlex, gifosTrending, index) =>{
     const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
     gifosContainerFlex.removeChild(gifosTrending);
@@ -57,7 +54,6 @@ const removerGifToFavorite = (gifosContainerFlex, gifosTrending, index) =>{
     localStorage.setItem('gif', JSON.stringify(favoriteSection));
     createDomFavorite();
 }; 
-
 /* Favoritos */
 let checkFavorite = (gifoID) =>{
     let isFavorite = false;
@@ -67,11 +63,9 @@ let checkFavorite = (gifoID) =>{
             isFavorite = true;
             break;
         };
-
     };
     return isFavorite;
 }
-
 /* Function create Dom */
 const createDom = (data, containerMain, index) =>{
     let gifosTrending = document.createElement('div');
@@ -90,7 +84,7 @@ const createDom = (data, containerMain, index) =>{
     actionsUser.classList.add('actions_users');
     let iconFav = document.createElement('div');
     iconFav.classList.add('icon_fav', 'tamaño_actions_users');
-    
+
     iconFav.addEventListener('click', (e) =>{
         if (checkFavorite(data.id) === false) {
             e.currentTarget.classList.remove('icon_fav');
@@ -99,7 +93,7 @@ const createDom = (data, containerMain, index) =>{
         }else{
             e.currentTarget.classList.remove('icon_fav_remove');
             e.currentTarget.classList.add('icon_fav');
-            removerGifToFavoriteTrendin(data.id, e.currentTarget);
+            removerGifToFavoriteTrendin(data.id);
             createDomFavorite();
         }
     });
@@ -177,7 +171,16 @@ const max = (items) =>{
     //icono favorito
     const iconFavMax = document.createElement('div');
     iconFavMax.classList.add('icon_fav_max', 'tamaño_actions_users');
-
+    const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
+    favoriteSection.map((elemento) =>{
+        if (elemento.id === items.id) {
+            iconFavMax.classList.remove('icon_fav');
+            iconFavMax.classList.add('icon_fav_remove');
+        }else{
+            iconFavMax.classList.remove('icon_fav_remove');
+            iconFavMax.classList.add('icon_fav');
+        }
+    });
     iconFavMax.addEventListener('click', (e)=>{
         if (checkFavorite(items.id) === false) {
             e.currentTarget.classList.remove('icon_fav_max');
