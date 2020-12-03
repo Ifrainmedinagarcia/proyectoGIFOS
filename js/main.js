@@ -62,21 +62,21 @@ const createDom = (data, containerMain, index) =>{
     actionsUser.classList.add('actions_users');
     let iconFav = document.createElement('div');
     iconFav.classList.add('icon_fav', 'tamaño_actions_users');
-    const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
-    favoriteSection.forEach(elemento =>{
-        if (data.id === elemento.id) {
+        if (data.id) {
             iconFav.classList.remove('icon_fav');
             iconFav.classList.add('icon_fav_remove');
         }else{
-            iconFav.classList.add('icon_fav', 'tamaño_actions_users');
+            iconFav.classList.add('icon_fav');
+            iconFav.classList.remove('icon_fav_remove');
         }
-    });
     iconFav.addEventListener('click', () =>{
         if (iconFav.classList.contains('icon_fav')) {
+            const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
             iconFav.classList.remove('icon_fav');
             iconFav.classList.add('icon_fav_remove');
+            localStorage.setItem('gif', JSON.stringify(favoriteSection))
             addToFavorite(data);
-        }else{
+        }else if(iconFav.classList.contains('icon_fav_remove')){
             iconFav.classList.add('icon_fav');
             iconFav.classList.remove('icon_fav_remove');
             const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
