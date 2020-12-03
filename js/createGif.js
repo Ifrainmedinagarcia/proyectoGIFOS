@@ -1,3 +1,4 @@
+'use strict'
 /* Funcionalidad de Menú hamburguesa */
 const menuBurguer = document.getElementById('menu_burger');
 const menuBurguerClose = document.getElementById('menu_burger_close');

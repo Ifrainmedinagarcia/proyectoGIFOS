@@ -1,3 +1,4 @@
+'use strict'
 /* Dark mode */
 let darkMode = document.getElementById('darkMode');
 darkMode.addEventListener('click', (e) =>{

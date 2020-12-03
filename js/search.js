@@ -1,4 +1,4 @@
-
+'use strict'
 const searchValue = document.getElementById('search_value');
 const searchBtn = document.getElementById('btn_search');
 const sectionSearch = document.getElementById('sectionSearch');

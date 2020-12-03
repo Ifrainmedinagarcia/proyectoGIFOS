@@ -1,3 +1,5 @@
+'use strict'
+
 /* Funcionalidad de Menú hamburguesa */
 const menuBurguer = document.getElementById('menu_burger');
 const menuBurguerClose = document.getElementById('menu_burger_close');
@@ -35,14 +37,40 @@ const addToFavorite = (gifosAdd) =>{
     localStorage.setItem('gif', JSON.stringify(favoriteSection));
     createDomFavorite();
 }
+
+const removerGifToFavoriteTrendin = (gifoID) => {
+    const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
+    let favoriteIndex;
+    favoriteSection.forEach((gifoInfo, index) => {
+        if (gifoInfo.id === gifoID) {
+            favoriteIndex = index;
+        }
+    });
+    favoriteSection.splice(favoriteIndex, 1);
+    localStorage.setItem('gif', JSON.stringify(favoriteSection));
+};
+
 const removerGifToFavorite = (gifosContainerFlex, gifosTrending, index) =>{
     const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
     gifosContainerFlex.removeChild(gifosTrending);
     favoriteSection.splice(index, 1);
     localStorage.setItem('gif', JSON.stringify(favoriteSection));
     createDomFavorite();
-};
+}; 
+
 /* Favoritos */
+let checkFavorite = (gifoID) =>{
+    let isFavorite = false;
+    const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
+    for (let gifo = 0; gifo < favoriteSection.length; gifo++) {
+        if (favoriteSection[gifo].id === gifoID) {
+            isFavorite = true;
+            break;
+        };
+
+    };
+    return isFavorite;
+}
 
 /* Function create Dom */
 const createDom = (data, containerMain, index) =>{
@@ -62,29 +90,20 @@ const createDom = (data, containerMain, index) =>{
     actionsUser.classList.add('actions_users');
     let iconFav = document.createElement('div');
     iconFav.classList.add('icon_fav', 'tamaño_actions_users');
-        if (data.id) {
-            iconFav.classList.remove('icon_fav');
-            iconFav.classList.add('icon_fav_remove');
-        }else{
-            iconFav.classList.add('icon_fav');
-            iconFav.classList.remove('icon_fav_remove');
-        }
-    iconFav.addEventListener('click', () =>{
-        if (iconFav.classList.contains('icon_fav')) {
-            const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
-            iconFav.classList.remove('icon_fav');
-            iconFav.classList.add('icon_fav_remove');
-            localStorage.setItem('gif', JSON.stringify(favoriteSection))
+    
+    iconFav.addEventListener('click', (e) =>{
+        if (checkFavorite(data.id) === false) {
+            e.currentTarget.classList.remove('icon_fav');
+            e.currentTarget.classList.add('icon_fav_remove');
             addToFavorite(data);
-        }else if(iconFav.classList.contains('icon_fav_remove')){
-            iconFav.classList.add('icon_fav');
-            iconFav.classList.remove('icon_fav_remove');
-            const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
-            favoriteSection.splice(index, 1);
-            localStorage.setItem('gif', JSON.stringify(favoriteSection));
+        }else{
+            e.currentTarget.classList.remove('icon_fav_remove');
+            e.currentTarget.classList.add('icon_fav');
+            removerGifToFavoriteTrendin(data.id, e.currentTarget);
             createDomFavorite();
         }
     });
+
     actionsUser.appendChild(iconFav);
 
     const iconDownload = document.createElement('div');
@@ -131,7 +150,6 @@ const maxSection = document.getElementById('maxSection');
 const containerCarruselMax = document.querySelector('.container_gif_max_title_actions');
 const closeMaxGif = document.querySelector('.close_max_gif');
 const max = (items) =>{
-    let contador = 0;
     maxSection.classList.remove('none');
     //contenedor gifMax
     containerCarruselMax.innerHTML='';
@@ -159,20 +177,17 @@ const max = (items) =>{
     //icono favorito
     const iconFavMax = document.createElement('div');
     iconFavMax.classList.add('icon_fav_max', 'tamaño_actions_users');
-    
-    iconFavMax.addEventListener('click', ()=>{
-        if (contador === 0) {
-            iconFavMax.classList.remove('icon_fav_max');
-            iconFavMax.classList.add('icon_fav_max_active');
+
+    iconFavMax.addEventListener('click', (e)=>{
+        if (checkFavorite(items.id) === false) {
+            e.currentTarget.classList.remove('icon_fav_max');
+            e.currentTarget.classList.add('icon_fav_remove');
             addToFavorite(items);
-            contador = 1;
         }else{
-            iconFavMax.classList.add('icon_fav_max');
-            iconFavMax.classList.remove('icon_fav_max_active');
-            const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
-            favoriteSection.splice(index, 1);
-            localStorage.setItem('gif', JSON.stringify(favoriteSection));
-            contador = 0;
+            e.currentTarget.classList.remove('icon_fav_remove');
+            e.currentTarget.classList.add('icon_fav_max');
+            removerGifToFavoriteTrendin(items.id);
+            createDomFavorite();
         }
     });
     actionsUser.appendChild(iconFavMax);

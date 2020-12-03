@@ -1,3 +1,4 @@
+'use strict'
 //Add to favorite
 
 const gifosContainerFlex = document.getElementById('gifosContainerFlex');
@@ -7,8 +8,9 @@ const createDomFavorite = () => {
     const ruta = window.location.href.toString().split(window.location.host)[1];
     if (ruta != '/favoritos.html') return;
     const gifLocal = JSON.parse(localStorage.getItem('gif')) || [];
-    if (gifLocal.length <= 0) {
-        favoriteClean.classList.remove ('none');
+    if (gifLocal.length <= 0 && gifLocal !==  '') {
+        favoriteClean.classList.remove('none');
+        gifosContainerFlex.innerHTML = '';
     } else {
         favoriteClean.classList.add('none');
         gifosContainerFlex.innerHTML = '';
@@ -69,7 +71,7 @@ const createDomFavorite = () => {
             gifosTrending.appendChild(infoGif);
             gifosContainerFlex.appendChild(gifosTrending);
         });
-    }
+    };
 }
 createDomFavorite();
 /* Add to favorite */
