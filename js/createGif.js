@@ -54,6 +54,7 @@ const pasoUno = document.getElementById('pasoUno');
 const pasoDos = document.getElementById('pasoDos');
 const pasoTres = document.getElementById('pasoTres');
 const timming = document.querySelector('.timming');
+const repeat = document.getElementById('repeat');
 let recorder;
 
 function getStreamAndRecord() {
@@ -67,7 +68,6 @@ function getStreamAndRecord() {
             height: 240
         }
     })
-
     .then(function (stream) {
         start.classList.add('none');
         record.classList.remove('none');
@@ -89,9 +89,7 @@ function getStreamAndRecord() {
             },
         });
     });
-
 };
-
 start.addEventListener('click', () =>{
     getStreamAndRecord();
 });
@@ -101,9 +99,27 @@ record.addEventListener('click', () =>{
     recorder.startRecording();
     timeRecord();
 });
-
 finish.addEventListener('click', () =>{
     stopTime();
-    //recorder.stopRecording(() => uploandGifo(recoder));
+    repeat.classList.remove('none');
+    timming.classList.add('none');
+    finish.classList.add('none');
+    upload.classList.remove('none');
+    recorder.stopRecording(() => {
+        let form = new FormData();
+        form.append("file", recorder.getBlob(), "myGifo.gif");
+    });
+});
+
+repeat.addEventListener('click', () =>{
+    alert('hola');
+});
+
+
+
+upload.addEventListener('click', ()=>{
+    pasoDos.classList.remove('paso_paso_checked');
+    pasoTres.classList.add('paso_paso_checked');
+    alert('hola');
 });
 /* Create Gifo */

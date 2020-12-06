@@ -159,6 +159,8 @@ video{
     .timming{
         position: absolute;
         right: -450px;
+        margin-left: 250px;
+        width: 170px;
         top: -20px;
         color: var(--text-color);
         font-family: 'Montserrat';
@@ -168,6 +170,10 @@ video{
         letter-spacing: 0;
         text-align: center;
         line-height: 22px;
+        cursor: pointer;
+    }
+    .timming:hover{
+        border-bottom: 2px solid #5ED7C6;
     }
 }
 @media screen and (min-width:1200px){
