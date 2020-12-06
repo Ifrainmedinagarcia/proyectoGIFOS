@@ -56,8 +56,9 @@ const pasoTres = document.getElementById('pasoTres');
 const timming = document.querySelector('.timming');
 const repeat = document.getElementById('repeat');
 let recorder;
+let form = new FormData();
 
-function getStreamAndRecord() {
+const getStreamAndRecord = () => {
     titleCreateGifo.innerHTML =  `<h1 id="titleCreateGifo">¿Nos das acceso a tu cámara?</h1>`;
     pCreateGifo.innerHTML = `<P id="pCreateGifo">El acceso a tu camara será válido sólo por el tiempo en el que estés creando el GIFO.</P>`;
     pasoUno.classList.add('paso_paso_checked');
@@ -93,12 +94,25 @@ function getStreamAndRecord() {
 start.addEventListener('click', () =>{
     getStreamAndRecord();
 });
+const uploadGifo = () =>{
+    fetch(`${uploadGif}gifs?api_key=${apiSearch}`,{
+        method: 'POST',
+        body: form,
+    })
+    .then(resp => resp.json())
+    .then(gifos => {
+        const myGif = JSON.parse(localStorage.getItem('misGifosCreados')) || [];
+        myGif.push(gifos);
+        localStorage.setItem('misGifosCreados', JSON.stringify(myGif));
+    })
+};
 record.addEventListener('click', () =>{
     record.classList.add('none');
     finish.classList.remove('none');
     recorder.startRecording();
     timeRecord();
 });
+
 finish.addEventListener('click', () =>{
     stopTime();
     repeat.classList.remove('none');
@@ -106,8 +120,8 @@ finish.addEventListener('click', () =>{
     finish.classList.add('none');
     upload.classList.remove('none');
     recorder.stopRecording(() => {
-        let form = new FormData();
         form.append("file", recorder.getBlob(), "myGifo.gif");
+        console.log(form.get('file'))
     });
 });
 
@@ -115,11 +129,11 @@ repeat.addEventListener('click', () =>{
     alert('hola');
 });
 
-
-
 upload.addEventListener('click', ()=>{
     pasoDos.classList.remove('paso_paso_checked');
     pasoTres.classList.add('paso_paso_checked');
-    alert('hola');
+    uploadGifo();
 });
+
+
 /* Create Gifo */
