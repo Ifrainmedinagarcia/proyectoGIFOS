@@ -39,9 +39,10 @@
     </header>
     <main>
         <div class="cam_main">
+            <video id="videoCreate" src=""></video>
             <div class="container_title_crea">
-                <h1>Aquí podrás crear tus propios <span>GIFOS</span></h1>
-                <P>¡Crea tu GIFO en sólo 3 pasos!(sólo necesitas una cámara para grabar un video)</P>
+                <h1 id="titleCreateGifo">Aquí podrás crear tus propios <span>GIFOS</span></h1>
+                <P id="pCreateGifo">¡Crea tu GIFO en sólo 3 pasos!(sólo necesitas una cámara para grabar un video)</P>
             </div>
         </div>
         <div class="camera none"></div>
@@ -54,7 +55,10 @@
         <div class="paso_paso">3</div>
     </div>
     <div class="line_big"></div>
-    <div class="btn_start"> <strong>Comenzar</strong></div>
+    <div id="start" class="btn_start"> <strong>COMENZAR</strong></div>
+    <div id="record" class="btn_start none"> <strong>GRABAR</strong></div>
+    <div id="finish" class="btn_start none"> <strong>FINALIZAR</strong></div>
+    <div id="upload" class="btn_start none"> <strong>SUBIR GIFO</strong></div>
     <footer>
         <h3>Compartir en:</h3>
         <div class="container_rrss">
