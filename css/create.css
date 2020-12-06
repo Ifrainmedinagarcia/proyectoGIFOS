@@ -98,6 +98,13 @@ video{
     width: 80%;
     height: 80%;
 }
+.timming{
+    position: absolute;
+    top: 20px;
+    right: 0;
+    left: 0;
+    color: var(--text-color);
+}
 @media screen and (min-width:1024px){
     .cam_main{
         position: relative;
@@ -149,6 +156,19 @@ video{
     .btn_start{
         top: 200px;
     }
+    .timming{
+        position: absolute;
+        right: -450px;
+        top: -20px;
+        color: var(--text-color);
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-size: 15px;
+        color: #572EE5;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: 22px;
+    }
 }
 @media screen and (min-width:1200px){
     footer{
@@ -191,4 +211,5 @@ video{
     body.dark .movie{
         background-image: url(../assets/pelicula-modo-noc.svg);
     }
+
 }
