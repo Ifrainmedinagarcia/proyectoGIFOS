@@ -1,13 +1,33 @@
 'use strict'
 const searchGifoFlex = document.querySelector('.search_gifos_flex');
 const no_favorites = document.querySelector('.no_favorites');
-const myGif = JSON.parse(localStorage.getItem('misGifosCreados')) || [];
 
-const createDomMyGif = () =>{
-    myGif.map(elementos => {
+const getGifosID = ()=>{
+    let idMyGif = [];
+    const myGif = JSON.parse(localStorage.getItem('misGifosCreados')) || [];
+    myGif.map(elementosId =>{
+        idMyGif.push(elementosId.id);
+    })
+    idMyGif = idMyGif.join();
+    return idMyGif;
+}
+
+const myGifosUrl = () =>{
+    let gifoID = getGifosId();
+    const urlMyGifLocal = `${baseApi}?api_key=${apiSearch}&ids=${gifoID}`;
+    let result = getIfoApi(urlMyGifLocal);
+    result.then((resp)=>{
+        createDomMyGif(resp);
+    }).catch((e) => {
+        alert("a ocurrido un error" + e);
+    });
+
+};
+
+const createDomMyGif = (resp) =>{
         const divContainerMyGifos = document.createElement('div');
         divContainerMyGifos.classList.add('gifos_trending');
-        //divContainerMyGifos.style.backgroundImage = `url("${elementos.images.original.url}")`;
+        divContainerMyGifos.style.backgroundImage = `url("${resp.images.original.url}")`;
 
         const divInfoMyGif = document.createElement('div');
         divInfoMyGif.classList.add('info_gif');
@@ -48,7 +68,5 @@ const createDomMyGif = () =>{
         divContainerMyGifos.appendChild(containerTitleGifosMy);
         searchGifoFlex.appendChild(divContainerMyGifos);
         console.log(elementos);
-
-    });
 }
 createDomMyGif();

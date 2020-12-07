@@ -232,7 +232,7 @@ const trendingDom = () =>{
     let result = getIfoApi(url);
     result.then((resp)=>{
         resp.data.map((item, i) => createDomTrending(item, i));
-    }).catch((e) => {
+    }).catch((e) =>{
         alert("a ocurrido un error" + e);
     });
 };
