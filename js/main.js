@@ -245,12 +245,7 @@ trendingDom();
 const containerMax = document.querySelector('.container_gif_max_title_actions');
 const arrowLefMax = document.getElementById('arrow-lef-max');
 const arrowRightMax = document.getElementById('arrow-right-max');
-arrowRightMax.addEventListener('click', ()=>{
-    containerMax.scrollLeft -= containerMax.offsetWidth;
-});
-arrowLefMax.addEventListener('click', ()=>{
-    containerMax.scrollLeft += containerMax.offsetWidth;
-});
+
 /* Carrusel max */
 
 //Download

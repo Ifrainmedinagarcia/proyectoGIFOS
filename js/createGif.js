@@ -56,6 +56,12 @@ const pasoDos = document.getElementById('pasoDos');
 const pasoTres = document.getElementById('pasoTres');
 const timming = document.querySelector('.timming');
 const repeat = document.getElementById('repeat');
+const bgBlue = document.querySelector('.bg_blue');
+const cargandoIcon = document.querySelector('.cargandoIcon');
+const pSubir = document.querySelector('.pSubir');
+const subidoIcon = document.querySelector('.subidoIcon');
+const pSubirExito = document.querySelector('.exito');
+
 let recorder;
 let form = new FormData();
 
@@ -95,6 +101,7 @@ const getStreamAndRecord = () => {
 start.addEventListener('click', () =>{
     getStreamAndRecord();
 });
+
 const uploadGifo = () =>{
     fetch(`${uploadGif}gifs?api_key=${apiSearch}`,{
         method: 'POST',
@@ -105,8 +112,22 @@ const uploadGifo = () =>{
         const myGif = JSON.parse(localStorage.getItem('misGifosCreados')) || [];
         myGif.push(gifos);
         localStorage.setItem('misGifosCreados', JSON.stringify(myGif));
-    })
+        cargandoIcon.classList.add('none');
+        pSubir.classList.add('none');
+        subidoIcon.classList.remove('none');
+        pSubirExito.classList.remove('none');
+        setInterval(() => {
+            subidoIcon.classList.add('none');
+            pSubirExito.classList.add('none');
+            
+        }, 2000);
+
+    }).catch(e => console.log(e));
 };
+
+
+
+
 record.addEventListener('click', () =>{
     record.classList.add('none');
     finish.classList.remove('none');
@@ -138,6 +159,7 @@ repeat.addEventListener('click', () =>{
 upload.addEventListener('click', ()=>{
     pasoDos.classList.remove('paso_paso_checked');
     pasoTres.classList.add('paso_paso_checked');
+    bgBlue.classList.remove('none');
     uploadGifo();
 });
 /* Create Gifo */
