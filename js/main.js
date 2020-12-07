@@ -35,7 +35,7 @@ const addToFavorite = (gifosAdd) =>{
     favoriteSection.push(gifosAdd);
     localStorage.setItem('gif', JSON.stringify(favoriteSection));
     createDomFavorite();
-};
+}
 const removerGifToFavoriteTrendin = (gifoID) => {
     const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
     let favoriteIndex;
@@ -69,10 +69,8 @@ const createDom = (data, containerMain, index) =>{
         };
     });
     gifosTrending.style.backgroundImage = `url("${data.images.original.url}")`;
-
     let infoGif = document.createElement('div');
     infoGif.classList.add('info_gif');
-
     let actionsUser = document.createElement('div');
     actionsUser.classList.add('actions_users');
     let iconFav = document.createElement('div');
@@ -91,7 +89,7 @@ const createDom = (data, containerMain, index) =>{
         if (checkFavorite(data.id) === false  && iconFav.classList.contains('icon_fav')) {
             e.currentTarget.classList.remove('icon_fav');
             e.currentTarget.classList.add('icon_fav_remove');
-            addToFavorite(data, iconFav);
+            addToFavorite(data);
         }else{
             e.currentTarget.classList.remove('icon_fav_remove');
             e.currentTarget.classList.add('icon_fav');

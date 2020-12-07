@@ -1,12 +1,17 @@
 'use strict'
 const searchGifoFlex = document.querySelector('.search_gifos_flex');
-const no_favorites = document.querySelector('.no_favorites');
-if (searchGifoFlex !== '') {
-    no_favorites.classList.add('none');
-}else{
-    no_favorites.classList.remove('none');
+const no_favorites = document.getElementById('misGifosMsj');
+const removeMy = (gifoRemoveMy) =>{
+    const myGif = JSON.parse(localStorage.getItem('misGifosCreados')) || [];
+    let myIndexRemove;
+    myGif.map((gifRemove, i) =>{
+        if (gifRemove.id === gifoRemoveMy) {
+            myIndexRemove = i;
+        }
+    });
+    myGif.splice(myIndexRemove, 1);
+    localStorage.setItem('misGifosCreados', JSON.stringify(myGif));
 }
-
 const myGifosUrl = (gifoID) =>{
     const urlMyGifLocal = `${baseApi}${gifoID}?api_key=${apiSearch}`;
     let result = getIfoApi(urlMyGifLocal);
@@ -17,7 +22,6 @@ const myGifosUrl = (gifoID) =>{
         alert("a ocurrido un error" + e);
     });
 };
-
 const getGifosID = ()=>{
     const myGif = JSON.parse(localStorage.getItem('misGifosCreados')) || [];
     myGif.map(elementosId =>{
@@ -26,63 +30,76 @@ const getGifosID = ()=>{
     });
 }
 getGifosID();
-
 const createDomMyGif = (gif) =>{
-        const divContainerMyGifos = document.createElement('div');
-        divContainerMyGifos.classList.add('gifos_trending');
-        divContainerMyGifos.addEventListener('click', ()=>{
-            if(screen.width < 1024){
+    const myGif = JSON.parse(localStorage.getItem('misGifosCreados')) || [];
+        if (myGif.length <= 0 && myGif !==  '') {
+            no_favorites.classList.remove('none');
+        }else{
+            no_favorites.classList.add('none');
+            const divContainerMyGifos = document.createElement('div');
+            divContainerMyGifos.classList.add('gifos_trending');
+            divContainerMyGifos.addEventListener('click', ()=>{
+                if(screen.width < 1024){
+                    maxMy(gif);
+                };
+            });
+            divContainerMyGifos.style.backgroundImage = `url("${gif.data.images.original.url}")`;
+    
+            const divInfoMyGif = document.createElement('div');
+            divInfoMyGif.classList.add('info_gif');
+    
+            const actionsUserMyGif = document.createElement('div');
+            actionsUserMyGif.classList.add('actions_users');
+    
+    
+            const trashMyGif = document.createElement('div');
+            trashMyGif.classList.add('icon_trash', 'tamaño_actions_users');
+            trashMyGif.addEventListener('click', () =>{
+                removeMy(gif.data.id);
+                searchGifoFlex.removeChild(divContainerMyGifos);
+                if (searchGifoFlex.innerHTML === '') {
+                    no_favorites.classList.remove('none');
+                }else{
+                    no_favorites.classList.add('none');
+                }
+            });
+            actionsUserMyGif.appendChild(trashMyGif);
+    
+            const downloadMyGif = document.createElement('div');
+            downloadMyGif.classList.add('icon_download', 'tamaño_actions_users');
+            downloadMyGif.addEventListener('click', () =>{
+                download(gif.data.images.original.url);
+            });
+            actionsUserMyGif.appendChild(downloadMyGif);
+    
+            const maxMyGif = document.createElement('div');
+            maxMyGif.classList.add('icon_max', 'tamaño_actions_users');
+            maxMyGif.addEventListener('click', () =>{
                 maxMy(gif);
-            };
-        });
-        divContainerMyGifos.style.backgroundImage = `url("${gif.data.images.original.url}")`;
-
-        const divInfoMyGif = document.createElement('div');
-        divInfoMyGif.classList.add('info_gif');
-
-        const actionsUserMyGif = document.createElement('div');
-        actionsUserMyGif.classList.add('actions_users');
-
-
-        const trashMyGif = document.createElement('div');
-        trashMyGif.classList.add('icon_trash', 'tamaño_actions_users');
-        actionsUserMyGif.appendChild(trashMyGif);
-
-        const downloadMyGif = document.createElement('div');
-        downloadMyGif.classList.add('icon_download', 'tamaño_actions_users');
-        downloadMyGif.addEventListener('click', () =>{
-            download(gif.data.images.original.url);
-        });
-        actionsUserMyGif.appendChild(downloadMyGif);
-
-        const maxMyGif = document.createElement('div');
-        maxMyGif.classList.add('icon_max', 'tamaño_actions_users');
-        maxMyGif.addEventListener('click', () =>{
-            maxMy(gif);
-        });
-        actionsUserMyGif.appendChild(maxMyGif);
-        
-        divInfoMyGif.appendChild(actionsUserMyGif);
-
-
-        const containerTitleGifosMy = document.createElement('div');
-        containerTitleGifosMy.classList.add('container_title_gifos_card');
-
-        const pGifosCardMy = document.createElement('div');
-        pGifosCardMy.classList.add('p_gifos_card');
-        pGifosCardMy.textContent = gif.data.username;
-        containerTitleGifosMy.appendChild(pGifosCardMy);
-        
-        const titleMyGifos = document.createElement('div');
-        titleMyGifos.classList.add('title_gifos_card');
-        titleMyGifos.textContent = gif.data.title;
-        containerTitleGifosMy.appendChild(titleMyGifos);
-
-        divContainerMyGifos.appendChild(divInfoMyGif);
-        divContainerMyGifos.appendChild(containerTitleGifosMy);
-        searchGifoFlex.appendChild(divContainerMyGifos);
+            });
+            actionsUserMyGif.appendChild(maxMyGif);
+            
+            divInfoMyGif.appendChild(actionsUserMyGif);
+    
+    
+            const containerTitleGifosMy = document.createElement('div');
+            containerTitleGifosMy.classList.add('container_title_gifos_card');
+    
+            const pGifosCardMy = document.createElement('div');
+            pGifosCardMy.classList.add('p_gifos_card');
+            pGifosCardMy.textContent = gif.data.username;
+            containerTitleGifosMy.appendChild(pGifosCardMy);
+            
+            const titleMyGifos = document.createElement('div');
+            titleMyGifos.classList.add('title_gifos_card');
+            titleMyGifos.textContent = gif.data.title;
+            containerTitleGifosMy.appendChild(titleMyGifos);
+    
+            divContainerMyGifos.appendChild(divInfoMyGif);
+            divContainerMyGifos.appendChild(containerTitleGifosMy);
+            searchGifoFlex.appendChild(divContainerMyGifos);
+        }
 };
-
 const maxMy = (items) =>{
     maxSection.classList.remove('none');
     //contenedor gifMax
@@ -147,7 +164,6 @@ const maxMy = (items) =>{
     divGifMax.appendChild(containerTitleAndAction);
     containerCarruselMax.appendChild(divGifMax);
 }
-
 closeMaxGif.addEventListener('click', ()=>{
     maxSection.classList.add('none');
 });

@@ -14,8 +14,8 @@ const createDomFavorite = () => {
     } else {
         favoriteClean.classList.add('none');
         gifosContainerFlex.innerHTML = '';
-        gifLocal.forEach((elemento, index) => {
-            createDom(elemento, gifosContainerFlex, index);
+        gifLocal.forEach((favoritoGif, index) => {
+            createDom(favoritoGif, gifosContainerFlex, index);
             /*  const gifosTrending = document.createElement('div');
             gifosTrending.classList.add('gifos_trending');
             gifosTrending.addEventListener('click', ()=>{
