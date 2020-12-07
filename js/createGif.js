@@ -134,6 +134,7 @@ upload.addEventListener('click', ()=>{
     pasoTres.classList.add('paso_paso_checked');
     uploadGifo();
 });
-
-
 /* Create Gifo */
+/* Dom Mis Gif */
+
+/* Dom Mis Gif */
