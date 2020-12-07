@@ -35,7 +35,7 @@ const addToFavorite = (gifosAdd) =>{
     favoriteSection.push(gifosAdd);
     localStorage.setItem('gif', JSON.stringify(favoriteSection));
     createDomFavorite();
-}
+};
 const removerGifToFavoriteTrendin = (gifoID) => {
     const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
     let favoriteIndex;
