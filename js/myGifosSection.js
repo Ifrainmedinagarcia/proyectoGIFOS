@@ -51,7 +51,6 @@ const createDomMyGif = (gif) =>{
             const actionsUserMyGif = document.createElement('div');
             actionsUserMyGif.classList.add('actions_users');
     
-    
             const trashMyGif = document.createElement('div');
             trashMyGif.classList.add('icon_trash', 'tamaño_actions_users');
             trashMyGif.addEventListener('click', () =>{
@@ -75,32 +74,21 @@ const createDomMyGif = (gif) =>{
             const maxMyGif = document.createElement('div');
             maxMyGif.classList.add('icon_max', 'tamaño_actions_users');
             maxMyGif.addEventListener('click', () =>{
-                maxMy(gif);
+                maxMy(gif, divContainerMyGifos);
             });
             actionsUserMyGif.appendChild(maxMyGif);
             
             divInfoMyGif.appendChild(actionsUserMyGif);
     
-    
             const containerTitleGifosMy = document.createElement('div');
             containerTitleGifosMy.classList.add('container_title_gifos_card');
-    
-            const pGifosCardMy = document.createElement('div');
-            pGifosCardMy.classList.add('p_gifos_card');
-            pGifosCardMy.textContent = gif.data.username;
-            containerTitleGifosMy.appendChild(pGifosCardMy);
-            
-            const titleMyGifos = document.createElement('div');
-            titleMyGifos.classList.add('title_gifos_card');
-            titleMyGifos.textContent = gif.data.title;
-            containerTitleGifosMy.appendChild(titleMyGifos);
     
             divContainerMyGifos.appendChild(divInfoMyGif);
             divContainerMyGifos.appendChild(containerTitleGifosMy);
             searchGifoFlex.appendChild(divContainerMyGifos);
         }
 };
-const maxMy = (items) =>{
+const maxMy = (items, divContainerMyGifos) =>{
     maxSection.classList.remove('none');
     //contenedor gifMax
     containerCarruselMax.innerHTML='';
@@ -128,6 +116,15 @@ const maxMy = (items) =>{
     //icono favorito
     const trashMyGif = document.createElement('div');
     trashMyGif.classList.add('icon_trash', 'tamaño_actions_users');
+    trashMyGif.addEventListener('click', () =>{
+        removeMy(items.data.id);
+        searchGifoFlex.removeChild(divContainerMyGifos);
+        if (searchGifoFlex.innerHTML === '') {
+            no_favorites.classList.remove('none');
+        }else{
+            no_favorites.classList.add('none');
+        }
+    });
     actionsUser.appendChild(trashMyGif);
     //icono favorito
 

@@ -20,9 +20,9 @@ menuBurguerClose.addEventListener('click', funcionalidadMenuClose);
 let cronometro;
 let contadorS = 0;
 let contadorM = 0;
+const s = document.getElementById('segundos');
+const m = document.getElementById('minutos');
 const timeRecord = () =>{
-    const s = document.getElementById('segundos');
-    const m = document.getElementById('minutos');
     cronometro = setInterval(() => {
         if (contadorS == 60) {
             contadorS = 0;
@@ -35,6 +35,7 @@ const timeRecord = () =>{
         s.innerHTML = contadorS;
         contadorS++;
     }, 1000);
+
 }
 const stopTime = () =>{
         clearInterval(cronometro);
@@ -126,7 +127,12 @@ finish.addEventListener('click', () =>{
 });
 
 repeat.addEventListener('click', () =>{
-    alert('hola');
+    repeat.classList.add('none');
+    upload.classList.add('none');
+    m.innerHTML = 0;
+    s.innerHTML = 0;
+    getStreamAndRecord();
+
 });
 
 upload.addEventListener('click', ()=>{
