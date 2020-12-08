@@ -54,7 +54,6 @@ let checkFavorite = (gifoID) =>{
     for (let gifo = 0; gifo < favoriteSection.length; gifo++) {
         if (favoriteSection[gifo].id === gifoID) {
             isFavorite = true;
-            //break;
         };
     };
     return isFavorite;
@@ -171,6 +170,16 @@ const max = (items) =>{
     //icono favorito
     const iconFavMax = document.createElement('div');
     iconFavMax.classList.add('icon_fav_max', 'tamaño_actions_users');
+    const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
+    favoriteSection.map(elemento =>{
+        if (elemento.id === items.id) {
+            iconFavMax.classList.remove('icon_fav');
+            iconFavMax.classList.add('icon_fav_remove');
+        }else{
+            iconFavMax.classList.remove('icon_fav_remove');
+            iconFavMax.classList.add('icon_fav');
+        };
+    });
     iconFavMax.addEventListener('click', (e)=>{
         if (checkFavorite(items.id) === false) {
             e.currentTarget.classList.remove('icon_fav_max');

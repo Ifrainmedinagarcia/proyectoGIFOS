@@ -176,6 +176,7 @@ input{
     width: 90%;
     position: relative;
     left: 35px;
+    color: #9CAFC3;
     cursor: pointer;
     transition: all .3s ease;
     font-family: 'Roboto';
