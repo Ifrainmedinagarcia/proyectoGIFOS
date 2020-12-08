@@ -132,6 +132,10 @@ body.dark input{
 body.dark .line_search_input{
     background-color: white;
 }
+body.dark .paso_paso_checked{
+    background-color: var(--bg-color);
+    color: black;
+}
 @media screen and (min-width:1024px){
     body.dark .container_logo_header{
         background-image: url(../assets/Logo-modo-noc.svg);
