@@ -147,6 +147,9 @@ video{
     left: 0;
     color: var(--text-color);
 }
+.icon_download{
+    margin-left: 50px;
+} 
 @media screen and (min-width:768px){
     .bg_blue{
         width: 68%;
@@ -168,6 +171,13 @@ video{
     h1{
         font-size: 25px;
         text-align: center;
+    }
+    .icon_compartir{
+        background-image: url(../assets/icon-link-normal.svg);
+        cursor: pointer;
+    }
+    .icon_compartir:hover{
+        background-image: url(../assets/icon-link-hover.svg);
     }
     .container_title_crea{
         position: relative;
