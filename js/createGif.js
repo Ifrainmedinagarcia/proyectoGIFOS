@@ -61,6 +61,9 @@ const cargandoIcon = document.querySelector('.cargandoIcon');
 const pSubir = document.querySelector('.pSubir');
 const subidoIcon = document.querySelector('.subidoIcon');
 const pSubirExito = document.querySelector('.exito');
+const iconCompartir = document.querySelector('.icon_compartir');
+const iconDownload = document.querySelector('.icon_download');
+const gifoGrabado = document.getElementById('gifoGrabado');
 
 let recorder;
 let form = new FormData();
@@ -101,6 +104,17 @@ const getStreamAndRecord = () => {
 start.addEventListener('click', () =>{
     getStreamAndRecord();
 });
+
+const myGifosUrl = (gifoID) =>{
+    const urlMyGifLocal = `${baseApi}${gifoID}?api_key=${apiSearch}`;
+    let result = getIfoApi(urlMyGifLocal);
+    result.then((resp)=>{
+        download(resp.data.images.original.url);
+    }).catch((e) => {
+        alert("a ocurrido un error" + e);
+    });
+};
+
 const uploadGifo = () =>{
     fetch(`${uploadGif}gifs?api_key=${apiSearch}`,{
         method: 'POST',
@@ -115,10 +129,18 @@ const uploadGifo = () =>{
         pSubir.classList.add('none');
         subidoIcon.classList.remove('none');
         pSubirExito.classList.remove('none');
+        const gifosForShare = gifos.data.id;
         setInterval(() => {
             subidoIcon.classList.add('none');
             pSubirExito.classList.add('none');
-            
+            iconCompartir.classList.remove('none');
+            iconCompartir.addEventListener('click', () =>{
+                window.open(`https://media.giphy.com/media/${gifosForShare}/giphy.gif_blank`); 
+            });
+            iconDownload.classList.remove('none');
+            iconDownload.addEventListener('click', ()=>{
+                myGifosUrl(gifosForShare);
+            });
         }, 2000);
 
     }).catch(e => console.log(e));
@@ -136,13 +158,20 @@ finish.addEventListener('click', () =>{
     finish.classList.add('none');
     upload.classList.remove('none');
     recorder.stopRecording(() => {
+        video.classList.add('none');
+        gifoGrabado.classList.remove('none');
+        let blob = recorder.getBlob();
+        gifoGrabado.src = URL.createObjectURL(blob);
         form.append("file", recorder.getBlob(), "myGifo.gif");
         console.log(form.get('file'))
     });
 });
 repeat.addEventListener('click', () =>{
     repeat.classList.add('none');
+    video.classList.remove('none');
+    gifoGrabado.classList.add('none');
     upload.classList.add('none');
+    bgBlue.classList.add('none');
     m.innerHTML = 0;
     s.innerHTML = 0;
     getStreamAndRecord();
@@ -155,6 +184,19 @@ upload.addEventListener('click', ()=>{
     uploadGifo();
 });
 /* Create Gifo */
-/* Dom Mis Gif */
 
-/* Dom Mis Gif */
+const toDataURL = (url) => {
+    return fetch(url).then((response) => {
+        return response.blob();
+    }).then(blob => {
+        return URL.createObjectURL(blob);
+    });
+}
+const download =  async (gifDownload, name) => {
+        const a = document.createElement("a");
+        a.href = await toDataURL(gifDownload);
+        a.download = name;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+}

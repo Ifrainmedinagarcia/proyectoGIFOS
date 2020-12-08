@@ -149,9 +149,21 @@ video{
 }
 .icon_download{
     margin-left: 50px;
-} 
+}
+#gifoGrabado{
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+}
 @media screen and (min-width:768px){
     .bg_blue{
+        width: 68%;
+        height: 80%;
+    }
+    #gifoGrabado{
         width: 68%;
         height: 80%;
     }
@@ -165,6 +177,10 @@ video{
         border: 1px solid var(--text-color);
     }
     .bg_blue{
+        width: 68%;
+        height: 80%;
+    }
+    #gifoGrabado{
         width: 68%;
         height: 80%;
     }
