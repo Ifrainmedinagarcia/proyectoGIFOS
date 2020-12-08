@@ -101,7 +101,6 @@ const getStreamAndRecord = () => {
 start.addEventListener('click', () =>{
     getStreamAndRecord();
 });
-
 const uploadGifo = () =>{
     fetch(`${uploadGif}gifs?api_key=${apiSearch}`,{
         method: 'POST',
@@ -124,17 +123,12 @@ const uploadGifo = () =>{
 
     }).catch(e => console.log(e));
 };
-
-
-
-
 record.addEventListener('click', () =>{
     record.classList.add('none');
     finish.classList.remove('none');
     recorder.startRecording();
     timeRecord();
 });
-
 finish.addEventListener('click', () =>{
     stopTime();
     repeat.classList.remove('none');
@@ -146,7 +140,6 @@ finish.addEventListener('click', () =>{
         console.log(form.get('file'))
     });
 });
-
 repeat.addEventListener('click', () =>{
     repeat.classList.add('none');
     upload.classList.add('none');
@@ -155,7 +148,6 @@ repeat.addEventListener('click', () =>{
     getStreamAndRecord();
 
 });
-
 upload.addEventListener('click', ()=>{
     pasoDos.classList.remove('paso_paso_checked');
     pasoTres.classList.add('paso_paso_checked');

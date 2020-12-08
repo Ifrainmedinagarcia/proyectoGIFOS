@@ -151,11 +151,6 @@ video{
     .bg_blue{
         width: 68%;
         height: 80%;
-        position: absolute;
-        top: 50%; 
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color:rgba(87, 46, 229, .5);
     }
 }
 @media screen and (min-width:1024px){
@@ -169,11 +164,6 @@ video{
     .bg_blue{
         width: 68%;
         height: 80%;
-        position: absolute;
-        top: 50%; 
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color:rgba(87, 46, 229, .5);
     }
     h1{
         font-size: 25px;
