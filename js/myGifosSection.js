@@ -19,7 +19,6 @@ const myGifosUrl = (gifoID) =>{
     let result = getIfoApi(urlMyGifLocal);
     result.then((resp)=>{
         createDomMyGif(resp);
-        console.log(resp);
     }).catch((e) => {
         alert("a ocurrido un error" + e);
     });
@@ -28,7 +27,6 @@ const getGifosID = ()=>{
     const myGif = JSON.parse(localStorage.getItem('misGifosCreados')) || [];
     myGif.map(elementosId =>{
         myGifosUrl(elementosId.data.id)
-        console.log(elementosId.data.id);
     });
 }
 getGifosID();
