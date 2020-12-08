@@ -259,6 +259,24 @@ input::placeholder{
     height: 1px;
     background-color: #9CAFC3 ;
 }
+.intenta{
+    position: relative;
+    margin: auto;
+    width: 200px;
+    height: 200px;
+}
+.imgIntenta{
+    margin-left:23px;
+}
+.pIntenta{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    color: #50E3C2;
+    text-align: center;
+    line-height: 25px;
+}
 .section_search{
     position: relative;
     margin: auto;

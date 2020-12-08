@@ -9,31 +9,47 @@ const lineSuggestions = document.querySelector('.line_search_input');
 const xCancelSearch = document.querySelector('.x_cancel_search');
 const h1Title = document.getElementById('title');
 const lupa = document.querySelector('.fa-search');
+const intentaConOtra = document.getElementById('intentaConOtra');
 
 
 /* API Search */
-const search = (title, pagination) =>{
+const search = (title) =>{
     const urlSearch = `${baseApi}search?api_key=${apiSearch}&q=${title}&q=&limit=12`;
     const result = getIfoApi(urlSearch);
-    searchResult.innerHTML = '';
-    result.then((resp)=>{
-        resp.data.map((items, i) => domSearch(items, i));
-    }).catch((e) => {
-        console.log("a ocurrido un error " + e);
-    });
+            searchResult.innerHTML = '';
+            result.then((resp)=>{
+                if (resp.data.length === 0) {
+                    intentaConOtra.classList.remove('none');
+                    showMore.classList.add('none');
+                }else{
+                    showMore.classList.remove('none');
+                    intentaConOtra.classList.add('none');
+                    resp.data.map((items, i) =>{
+                        domSearch(items, i)
+                    });
+                }
+        }).catch((e) => {
+            console.log("a ocurrido un error " + e);
+        });
+    //}
+
 }
 const domSearch = (gifSearch, i) =>{
     h1Title.textContent = searchValue.value;
     createDom(gifSearch, searchResult, i);
-}
+};
+
 lupa.addEventListener('click', ()=>{
     if (searchValue.value != '') {
-        search(searchValue.value, pagination);
+        search(searchValue.value);
         lineSuggestions.classList.add('none');
         showMore.classList.remove('none');
         suggestionsContainer.innerHTML = '';
+        intentaConOtra.classList.add('none');
     }else{
-        alert('Por favor introduce un término de búsqueda');
+        searchResult.innerHTML = '';
+        showMore.classList.add('none');
+        intentaConOtra.classList.remove('none');
     }
 });
 searchValue.addEventListener('keyup', () => {
@@ -42,8 +58,11 @@ searchValue.addEventListener('keyup', () => {
             search(searchValue.value);
             showMore.classList.remove('none');
             lineSuggestions.classList.remove('none');
+            intentaConOtra.classList.add('none');
         }else{
-            alert('Por favor introduce un término de búsqueda');
+            searchResult.innerHTML = '';
+            showMore.classList.add('none');
+            intentaConOtra.classList.remove('none');
         }
     }
 });
@@ -87,6 +106,7 @@ const suggestionsDom = (sugerencia) =>{
         lineSuggestions.classList.add('none');
         showMore.classList.remove('none');
         suggestionsContainer.innerHTML = '';
+        intentaConOtra.classList.add('none');
     });
     
     suggestionsContainer.appendChild(divContainerPSug);

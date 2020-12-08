@@ -15,7 +15,9 @@ darkMode.addEventListener('click', (e) =>{
 });
 if (localStorage.getItem('dark-mode') === 'true') {
     document.body.classList.add('dark');
+    darkMode.textContent = 'Modo Diurno';
 }else{
     document.body.classList.remove('dark');
+    darkMode.textContent = 'Modo Nocturno';
 }
 /* Dark mode */
