@@ -1,6 +1,8 @@
 'use strict'
 const searchGifoFlex = document.querySelector('.search_gifos_flex');
 const no_favorites = document.getElementById('misGifosMsj');
+
+
 const removeMy = (gifoRemoveMy) =>{
     const myGif = JSON.parse(localStorage.getItem('misGifosCreados')) || [];
     let myIndexRemove;
@@ -40,7 +42,7 @@ const createDomMyGif = (gif) =>{
             divContainerMyGifos.classList.add('gifos_trending');
             divContainerMyGifos.addEventListener('click', ()=>{
                 if(screen.width < 1024){
-                    maxMy(gif);
+                    maxMy(gif, divContainerMyGifos);
                 };
             });
             divContainerMyGifos.style.backgroundImage = `url("${gif.data.images.original.url}")`;
@@ -114,9 +116,9 @@ const maxMy = (items, divContainerMyGifos) =>{
     //contenedor de acciones
 
     //icono favorito
-    const trashMyGif = document.createElement('div');
-    trashMyGif.classList.add('icon_trash', 'tamaño_actions_users');
-    trashMyGif.addEventListener('click', () =>{
+    const trashMyGifMax = document.createElement('div');
+    trashMyGifMax.classList.add('icon_trash', 'tamaño_actions_users');
+    trashMyGifMax.addEventListener('click', () =>{
         removeMy(items.data.id);
         searchGifoFlex.removeChild(divContainerMyGifos);
         if (searchGifoFlex.innerHTML === '') {
@@ -125,7 +127,7 @@ const maxMy = (items, divContainerMyGifos) =>{
             no_favorites.classList.add('none');
         }
     });
-    actionsUser.appendChild(trashMyGif);
+    actionsUser.appendChild(trashMyGifMax);
     //icono favorito
 
     //icono descarga

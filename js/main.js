@@ -174,10 +174,10 @@ const max = (items) =>{
     iconFavMax.addEventListener('click', (e)=>{
         if (checkFavorite(items.id) === false) {
             e.currentTarget.classList.remove('icon_fav_max');
-            e.currentTarget.classList.add('icon_fav_remove');
+            e.currentTarget.classList.add('icon_fav_max_active');
             addToFavorite(items);
         }else{
-            e.currentTarget.classList.remove('icon_fav_remove');
+            e.currentTarget.classList.remove('icon_fav_max_active');
             e.currentTarget.classList.add('icon_fav_max');
             removerGifToFavoriteTrendin(items.id);
             createDomFavorite();

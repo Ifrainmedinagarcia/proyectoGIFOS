@@ -151,10 +151,10 @@ body.dark .line_search_input{
     body.dark .trending_right{
         background-image: url(..//assets/button-slider-right-md-noct.svg);
     }
-    body.dark .trending_right_max{
-        background-image: url(../assets/button-slider-left-md-noct.svg);
+    body.dark .trending_left:hover{
+        background-image: url(../assets/button-slider-left-md-noct_hover.svg);
     }
-    body.dark .trending_left_max{
-        background-image: url(../assets/button-slider-right-md-noct.svg);
+    body.dark .trending_right:hover{
+        background-image: url(../assets/button-slider-right-md-noct-hover.svg);
     }
 }
