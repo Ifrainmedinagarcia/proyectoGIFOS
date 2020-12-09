@@ -132,7 +132,7 @@ const createDom = (data, containerMain, index) =>{
 
     gifosTrending.appendChild(infoGif);
     containerMain.appendChild(gifosTrending);
-}
+};
 /* Function create Dom */
 /* Function max */
 const maxSection = document.getElementById('maxSection');
