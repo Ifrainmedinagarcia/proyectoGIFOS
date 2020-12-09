@@ -36,7 +36,7 @@ const addToFavorite = (gifosAdd) =>{
     localStorage.setItem('gif', JSON.stringify(favoriteSection));
     createDomFavorite();
 }
-const removerGifToFavoriteTrendin = (gifoID) => {
+const removerGifToFavoriteTrending = (gifoID) => {
     const favoriteSection = JSON.parse(localStorage.getItem('gif')) || [];
     let favoriteIndex;
     favoriteSection.forEach((gifoInfo, index) => {
@@ -46,6 +46,7 @@ const removerGifToFavoriteTrendin = (gifoID) => {
     });
     favoriteSection.splice(favoriteIndex, 1);
     localStorage.setItem('gif', JSON.stringify(favoriteSection));
+    createDomFavorite();
 };
 /* Favoritos */
 let checkFavorite = (gifoID) =>{
@@ -83,7 +84,6 @@ const createDom = (data, containerMain, index) =>{
             iconFav.classList.add('icon_fav_remove');
         };
     });
-
     iconFav.addEventListener('click', (e) =>{
         if (checkFavorite(data.id) === false) {
             e.currentTarget.classList.remove('icon_fav');
@@ -92,8 +92,7 @@ const createDom = (data, containerMain, index) =>{
         }else{
             e.currentTarget.classList.remove('icon_fav_remove');
             e.currentTarget.classList.add('icon_fav');
-            removerGifToFavoriteTrendin(data.id);
-            createDomFavorite();
+            removerGifToFavoriteTrending(data.id);
         };
     });
     actionsUser.appendChild(iconFav);
@@ -175,6 +174,7 @@ const max = (items, iconFav) =>{
         };
     });
     iconFavMax.addEventListener('click', (e)=>{
+        
         if (checkFavorite(items.id) === false) {
             e.currentTarget.classList.remove('icon_fav_max');
             e.currentTarget.classList.add('icon_fav_max_active');
@@ -186,7 +186,7 @@ const max = (items, iconFav) =>{
             e.currentTarget.classList.add('icon_fav_max');
             iconFav.classList.add('icon_fav');
             iconFav.classList.remove('icon_fav_remove');
-            removerGifToFavoriteTrendin(items.id);
+            removerGifToFavoriteTrending(items.id);
             createDomFavorite();
         }
     });
