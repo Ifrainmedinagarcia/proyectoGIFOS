@@ -259,7 +259,7 @@ const toDataURL = (url) => {
     }).then(blob => {
         return URL.createObjectURL(blob);
     });
-}
+};
 const download =  async (gifDownload, name) => {
         const a = document.createElement("a");
         a.href = await toDataURL(gifDownload);
