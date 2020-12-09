@@ -184,7 +184,6 @@ upload.addEventListener('click', ()=>{
     uploadGifo();
 });
 /* Create Gifo */
-
 const toDataURL = (url) => {
     return fetch(url).then((response) => {
         return response.blob();

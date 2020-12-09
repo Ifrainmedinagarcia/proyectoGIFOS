@@ -54,10 +54,11 @@ lupa.addEventListener('click', ()=>{
 });
 searchValue.addEventListener('keyup', () => {
     if (event.which === 13 || event.keyCode == 13) {
-        if (searchValue.value != '') {
+        if (searchValue.value !== '') {
             search(searchValue.value);
             showMore.classList.remove('none');
             lineSuggestions.classList.remove('none');
+            suggestionsContainer.innerHTML = '';
             intentaConOtra.classList.add('none');
         }else{
             searchResult.innerHTML = '';
