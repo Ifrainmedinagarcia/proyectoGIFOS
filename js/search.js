@@ -58,7 +58,7 @@ searchValue.addEventListener('keyup', () => {
             search(searchValue.value);
             showMore.classList.remove('none');
             lineSuggestions.classList.remove('none');
-            suggestionsContainer.innerHTML = '';
+            suggestionsContainer.classList.add('none');
             intentaConOtra.classList.add('none');
         }else{
             searchResult.innerHTML = '';
@@ -112,9 +112,12 @@ const suggestionsDom = (sugerencia) =>{
     
     suggestionsContainer.appendChild(divContainerPSug);
 };
-searchValue.addEventListener('keyup', ()=>{
+searchValue.addEventListener('keyup', ()=>{  
+    if (event.which !== 13 || event.keyCode !== 13) {
+        suggestionsContainer.classList.remove('none');
+    }
     if (searchValue.value !== '') {
-        filtrar();
+        filtrar()
         lupa.classList.remove('none');
         lineSuggestions.classList.remove('none');
         xCancelSearch.classList.remove('none');

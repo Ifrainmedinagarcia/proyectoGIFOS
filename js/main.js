@@ -54,11 +54,13 @@ let checkFavorite = (gifoID) =>{
     for (let gifo = 0; gifo < favoriteSection.length; gifo++) {
         if (favoriteSection[gifo].id === gifoID) {  
             favorite = true;
+            break;
         };
     };
     return favorite;
 }
 /* Function create Dom */
+
 const createDom = (data, containerMain, index) =>{
     const gifosTrending = document.createElement('div');
     gifosTrending.classList.add('gifos_trending');
@@ -79,8 +81,9 @@ const createDom = (data, containerMain, index) =>{
         if (elemento.id === data.id) {
             iconFav.classList.remove('icon_fav');
             iconFav.classList.add('icon_fav_remove');
-        }
+        };
     });
+
     iconFav.addEventListener('click', (e) =>{
         if (checkFavorite(data.id) === false) {
             e.currentTarget.classList.remove('icon_fav');
