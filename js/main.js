@@ -178,14 +178,18 @@ const max = (items, iconFav) =>{
         if (checkFavorite(items.id) === false) {
             e.currentTarget.classList.remove('icon_fav_max');
             e.currentTarget.classList.add('icon_fav_max_active');
-            iconFav.classList.remove('icon_fav');
-            iconFav.classList.add('icon_fav_remove');
+            if(screen.width > 1024){
+                iconFav.classList.remove('icon_fav');
+                iconFav.classList.add('icon_fav_remove');
+            };
             addToFavorite(items);
         }else{
             e.currentTarget.classList.remove('icon_fav_max_active');
             e.currentTarget.classList.add('icon_fav_max');
-            iconFav.classList.add('icon_fav');
-            iconFav.classList.remove('icon_fav_remove');
+            if (screen.width > 1024) {
+                iconFav.classList.add('icon_fav');
+                iconFav.classList.remove('icon_fav_remove');
+            }
             removerGifToFavoriteTrending(items.id);
             createDomFavorite();
         }
