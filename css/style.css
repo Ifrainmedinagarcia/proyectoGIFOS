@@ -679,30 +679,6 @@ h3{
     .container_title_max_actions_user{
         width: 695px;
     }
-    .trending_right_max{
-        background-image: url(../assets/button-slider-left.svg);
-        width: 40px;
-        height: 40px;
-        position: absolute;
-        left: 100px;
-        top: 350px;
-        transition: all .3s ease;
-    }
-    .trending_right_max:hover{
-        background-image: url(../assets/button-slider-left-hover.svg);
-    }
-    .trending_left_max{
-        background-image: url(../assets/button-slider-right.svg);
-        width: 40px;
-        height: 40px;
-        position: absolute;
-        right: 100px;
-        top: 350px;
-        transition: all .3s ease;
-    }
-    .trending_left_max:hover{
-        background-image: url(../assets/Button-Slider-right-hover.svg);
-    }
     .container_title_gifos_card_max{
         right: 190px;
         width: 300px;
@@ -814,7 +790,7 @@ h3{
         background-image: url(../assets/button-slider-left-hover.svg);
     }
     .trending_right{
-        background-image: url(../assets/button-slider-right.svg);
+        background-image: url(../assets/Button-slider-right.svg);
         width: 40px;
         height: 40px;
         display: block;
