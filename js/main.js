@@ -248,7 +248,7 @@ const trendingDom = () =>{
 const createDomTrending = (datos, i) =>{
     const containerTrending = document.getElementById('containerTrending');
     createDom(datos, containerTrending, i);
-}
+};
 trendingDom();
 /* API Trending */
 
