@@ -55,7 +55,6 @@ let checkFavorite = (gifoID) =>{
     for (let gifo = 0; gifo < favoriteSection.length; gifo++) {
         if (favoriteSection[gifo].id === gifoID) {  
             favorite = true;
-            break;
         };
     };
     return favorite;
@@ -66,7 +65,7 @@ const createDom = (data, containerMain, index) =>{
     const gifosTrending = document.createElement('div');
     gifosTrending.classList.add('gifos_trending');
     gifosTrending.addEventListener('click', ()=>{
-        if(screen.width < 1024){
+        if(screen.width <= 1024){
             max(data);
         };
     });
