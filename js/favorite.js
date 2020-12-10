@@ -11,13 +11,14 @@ const createDomFavorite = () => {
     if (gifLocal.length <= 0) {
         favoriteClean.classList.remove('none');
         gifosContainerFlex.innerHTML = '';
-    } else {
+    }
+    
         favoriteClean.classList.add('none');
         gifosContainerFlex.innerHTML = '';
         gifLocal.forEach((favoritoGif, index) => {
             createDom(favoritoGif, gifosContainerFlex, index);
         });
-    };
+
 }
 createDomFavorite();
 /* Add to favorite */
