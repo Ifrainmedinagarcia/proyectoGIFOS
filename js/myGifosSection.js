@@ -1,4 +1,4 @@
-'use strict'
+
 const searchGifoFlex = document.querySelector('.search_gifos_flex');
 const no_favorites = document.getElementById('misGifosMsj');
 
