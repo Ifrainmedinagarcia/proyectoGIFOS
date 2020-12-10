@@ -8,7 +8,7 @@ const createDomFavorite = () => {
     const ruta = window.location.href.toString().split(window.location.host)[1];
     if (ruta != '/favoritos.html') return;
     const gifLocal = JSON.parse(localStorage.getItem('gif')) || [];
-    if (gifLocal.length <= 0 && gifLocal !==  '') {
+    if (gifLocal.length <= 0) {
         favoriteClean.classList.remove('none');
         gifosContainerFlex.innerHTML = '';
     } else {

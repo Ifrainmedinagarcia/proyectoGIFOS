@@ -151,7 +151,6 @@ const showMoreFunction = (title, pagination) =>{
 let pagination = 12;
 showMore.addEventListener('click', () =>{
     pagination = pagination + 12;
-    console.log(pagination);
     showMoreFunction(h1Title.textContent, pagination);
 });
 /* Show More */
