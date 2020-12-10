@@ -6,7 +6,7 @@ const favoriteClean = document.getElementById('favoriteClean');
 
 const createDomFavorite = () => {
     const ruta = window.location.href.toString().split(window.location.host)[1];
-    if (ruta != '/favoritos.html') return;
+    if (!ruta.includes('/favoritos.html')) return;
     const gifLocal = JSON.parse(localStorage.getItem('gif')) || [];
     if (gifLocal.length <= 0) {
         console.log("I'm in the if");
