@@ -172,6 +172,7 @@ repeat.addEventListener('click', () =>{
     gifoGrabado.classList.add('none');
     upload.classList.add('none');
     bgBlue.classList.add('none');
+    pasoTres.classList.remove('paso_paso_checked');
     m.innerHTML = 0;
     s.innerHTML = 0;
     getStreamAndRecord();
